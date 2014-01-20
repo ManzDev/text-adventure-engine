@@ -1,13 +1,13 @@
 <?php
 
-  // BUSCA SINONIMOS 
+  // FIND SYNONYMS
   // Si los encuentra, devuelve la palabra principal.
   // Si no los encuentra, la palabra buscada.
-  function busca_sinonimos($palabra) {
+  function find_synonyms($palabra) {
 
-    $sinonimos = load(ROOMFILE, 'sinonimos');
+    $synonyms = load(ROOMFILE, 'synonyms');
 
-    foreach ($sinonimos as $p => $s ) {
+    foreach ($synonyms as $p => $s ) {
 
       // Simple format
       if (is_string($s))
@@ -24,15 +24,21 @@
   function required_check($yes) {
     $items = array_keys((array)load(USERFILE, 'inventory'));
     $actions = array_keys((array)load(USERFILE, 'actions'));
+    $vars = (array)load(USERFILE, 'vars');
 
     // Simple format
     if (is_string($yes))
       $yes = array($yes);
 
-    // Separa en dos arrays (yes=deben cumplirse), (no=deben no cumplirse)
+    // Separa en arrays (yes=deben cumplirse), (no=deben no cumplirse), (var=deben superarse)
     $no = array();
+    $req = array();
     foreach ($yes as $k => $v) {
-      if ($v[0] == '!') {
+      if (strpos($v, '@') !== FALSE) {
+        $req[] = $v;
+        unset($yes[$k]);
+      }
+      else if ($v[0] == '!') {
         $no[] = substr($v, 1);
         unset($yes[$k]);
       }
@@ -56,6 +62,15 @@
       return FALSE;
     }
 
+    // Comprueba si se supera el mínimo requerido
+    foreach ($req as $i) {
+      list($var, $num) = explode('@', $v);
+
+      if ((array_key_exists($var, $vars)) && ($vars[$var] > $num))
+        continue;
+      return FALSE;
+    }
+
     return TRUE;
   }
 
@@ -71,9 +86,9 @@
 
     $num = count($exits);
     if ($num == 1)
-      return "Sólo hay una salida posible: " . enumerate($exits) . ".";
+      return _('EXIT_ONLY_ONE') . enumerate($exits) . ".";
     else 
-      return "Las salidas posibles son " . enumerate($exits) . ".";
+      return _('EXIT_AVAILABLE') . enumerate($exits) . ".";
   }
 
   // Comprueba si un lugar no ha sido visitado, y lo marca como tal
@@ -116,7 +131,7 @@
     return 'FAIL';
   }
 
-  // Comprueba si hay una acción setAction o setObject (opcionales) y si existe, la aplica
+  // Comprueba si existe una propiedad (opcional) y si existe, aplica la función $func()
   function check_saveparam($obj, $prop, $func) {
 
     if (property_exists($obj, $prop)) {
@@ -132,9 +147,37 @@
     }
   }
 
+  // Devuelve el nombre de la variable y el incremento/decremento
+  function get_var_and_number($p) {
+    if (strpos($p, '@') === FALSE)
+      return array($p, 1);
+    else
+      return explode('@', $p);
+  }
+
+  // Bloque de parámetros opcionales
+  function check_optional_param($obj) {
+    //if ($obj->sound) // play sound
+    check_saveparam($obj, 'inc', function($p) { 
+      list($v, $inc) = get_var_and_number($p);
+      $inc = (int)($inc === NULL ? 1 : $inc);
+      $var = (int)load(USERFILE, 'vars', $v);
+      save(USERFILE, 'vars', $v, $var + $inc);
+    });
+    check_saveparam($obj, 'dec', function($p) {
+      list($v, $dec) = get_var_and_number($p);
+      $dec = (int)($dec === NULL ? 1 : $dec);
+      $var = (int)load(USERFILE, 'vars', $v);
+      save(USERFILE, 'vars', $v, $var - $dec);
+    });
+    check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
+    check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
+    // PTE: Incrementar score
+  }
+
   // MIRAR
   function mirar($words) {
-    $words = busca_sinonimos($words);
+    $words = find_synonyms($words);
     $obj = load(ROOMFILE, 'mirar', $words);
 
     // Si hay un objeto que mirar...
@@ -155,13 +198,9 @@
             // OK, SAFISFIED
             
             // Only first time
-            $seen = $words . '_seen';
-            if (!load(USERFILE, 'actions', $seen)) {
-              //if ($obj->sound) // play sound
-              check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
-              check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
-              // PTE: Incrementar score
-              save(USERFILE, 'actions', $seen, "1");
+            if (!load(USERFILE, 'actions', $words . '_seen')) {
+              check_optional_param($obj);
+              save(USERFILE, 'actions', $words . '_seen', "1");
             }
             return $obj->message;
           }
@@ -177,9 +216,7 @@
         }
         // No hay restricciones
         else {
-          //if ($obj->sound) // play sound
-          check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
-          check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
+          check_optional_param($obj);
           return $obj->message;
         }
 
@@ -194,7 +231,7 @@
 
   // COGER
   function coger($words) {
-    $words = busca_sinonimos($words);
+    $words = find_synonyms($words);
     $obj = load(ROOMFILE, 'coger', $words);
 
     // Si hay un objeto que coger...
@@ -217,15 +254,12 @@
             
             // Only first time
             if (!load(USERFILE, 'inventory', $words)) {
-              //if ($obj->sound) // play sound
-              check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
-              check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
-              // PTE: Incrementar score
+              check_optional_param($obj);
               save(USERFILE, 'inventory', $words, "1");
               return $obj->message;
             }
             else
-              return "Ya lo tengo.";
+              return _('INVENTORY_ITEM_ALREADY');
           }
           else {
             // NO, EXCUSE
@@ -239,9 +273,7 @@
         }
         // No hay restricciones
         else {
-          //if ($obj->sound) // play sound
-          check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
-          check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
+          check_optional_param($obj);
           return $obj->message;
         }
 
@@ -262,9 +294,9 @@
 
     $num = count($inv);
     if ($num == 0)
-      return "No tengo nada.";
+      return _('INVENTORY_EMPTY');
     else
-      return "Tengo los siguientes objetos en mi inventario: " . enumerate($inv) . ".";
+      return _('INVENTORY_LIST') . enumerate($inv) . ".";
   }
 
   // PTE: Soporte de conversación al estilo Aventura gráfica
@@ -280,7 +312,7 @@
     }
 
     $item = new StdClass();
-    $item->m = "[Dejar de hablar]";
+    $item->m = _('TALK_STOP');
     $item->v = "dark";
     $talk->abort = $item;
     

@@ -23,15 +23,25 @@
 
 	// SAVE(sect, var, value)
 	// Save or update a section and variable with specified value (string)
+	// 3 => SAVE(sect, var, value)
+	// 4 => SAVE(sect, subsect, var, value)
 	function save() {
 		$n = func_num_args();
 		$g = func_get_args();
 
 		$data = json_decode(file_get_contents($g[0]));
+
+		if (!array_key_exists($g[1], $data))
+			$data->{$g[1]} = new StdClass();
+
+		if (($n == 4) && (!array_key_exists($g[2], $data->{$g[1]})))
+			$data->{$g[1]}->{$g[2]} = new StdClass();
+
 		if ($n == 3)
 			$data->{$g[1]} = $g[2];
 		else if ($n == 4)
-			$data->{$g[1]}->$g[2] = $g[3];
+			$data->{$g[1]}->{$g[2]} = $g[3];
+
 		unlink($g[0]);
 		file_put_contents($g[0], json_encode($data, JSON_PRETTY_PRINT));
 	}
@@ -96,7 +106,7 @@
 	function savechat($name, $msg) {
 		$file = CHATDIR . $name . '.log';
 		$f = fopen($file, 'ab');
-		$line = '[' .USERNAME. '] ' .$msg. "\r\n";
+		$line = '[' .USERNAME. '] ' .substr($msg, 0, 255). "\r\n";
 		fwrite($f, $line);
 		fclose($f);
 	}

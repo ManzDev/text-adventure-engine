@@ -6,9 +6,10 @@
 	define('SECURE_JSON', 1);			// Strip tags from JSON content
 
 	// PATHS DIR & FILES
-	define('USERDIR', $_SERVER['DOCUMENT_ROOT'] . '/users/');
-	define('ROOMDIR', $_SERVER['DOCUMENT_ROOT'] . '/data/');
-	define('CHATDIR', $_SERVER['DOCUMENT_ROOT'] . '/chats/');
+	define('APPDIR',  $_SERVER['DOCUMENT_ROOT']);
+	define('USERDIR', APPDIR . '/users/');
+	define('ROOMDIR', APPDIR . '/data/');
+	define('CHATDIR', APPDIR . '/chats/');
 
 	define('USERID', md5($_SERVER['REMOTE_ADDR']));
 	define('USERFILE', USERDIR . USERID .'.json');
@@ -50,7 +51,7 @@
 	  } 
 	  // list with 2 or more items
 	  else 
-	    return implode(', ', array_slice($array, 0, $n -1)) . ' y ' . $array[$n -1];
+	    return implode(', ', array_slice($array, 0, $n -1)) . ' '._('WORDS_AND').' ' . $array[$n -1];
 	}
 
 	
