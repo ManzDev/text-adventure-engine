@@ -1,0 +1,81 @@
+body {
+	background:#111;
+	font-family:'Press Start 2P';
+	color:#FFF;
+}
+
+/* Molde de página central */
+#page {
+	width:800px;
+	margin:auto; 		
+	min-height:800px;
+	text-align:center;
+	padding:1em;
+}
+
+/* Zona de la imagen */
+#img {
+	border:3px solid #FFF;
+	transition:all ease-in-out 0.2s;
+}
+	#img:hover {
+		transition:all ease-in-out 0.2s;
+		box-shadow:2px 2px 15px #000;
+		opacity:0.9;
+		border-color:#444;
+	}
+
+/* Zona de escritura */
+#input {
+	background:#111;
+	border:2px solid #222;
+	width:100%;
+	outline:none;
+	color:#00FFFF;
+	font-family:'Press Start 2P';
+	font-size:16px;
+	padding:6px;
+	height:22px;
+	border-radius:10px;    
+}
+
+	#input:hover {
+  		background:#222;
+	}
+
+#text, #chat {
+  margin:2em 0 2em 0;
+  text-align:left;
+}
+
+#chat {
+  color:#880088;
+}
+
+#input {
+	-webkit-transition: all .75s ease-out;
+    -moz-transition: background-color .75s ease-out;
+    -o-transition: background-color .75s ease-out;
+    -ms-transition: background-color .75s ease-out;
+    transition: background-color .75s ease-out;
+}
+
+/* Conversaciones */
+
+.talk {
+    margin-top:0.8em;
+    text-align:left;        
+}
+.talk a {
+    text-decoration:none;
+    line-height:120%;
+    color:#00AA00;    
+	cursor:crosshair;
+}
+.talk a:hover {
+    color:#FFFF00;
+}
+
+.talk .dark {
+    color:#004400;
+}
