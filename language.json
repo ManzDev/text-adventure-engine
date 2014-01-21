@@ -22,6 +22,7 @@
 								" aquel ", " esta ", " ahi ", " alla ", " hasta ", 
 								" aqui ", " algunos ", " algun ", " varios ", " quiero "],
 	"WORDS_AND" : "y",
+	"WORDS_END" : "FIN",
 
 	"LOOK_VERB" : "mirar",
 	"TAKE_VERB" : "coger",		
@@ -68,6 +69,8 @@
 
 	"NONICK_EXIST" : "No puedo ponerme un nuevo nombre, ya tengo uno.",
 	"NONICK_ERROR" : "No se puede utilizar ese nick.",
+
+	"END_ADVENTURE" : "¡Has terminado la aventura!",
 
 	"TALK_STOP" : "[Dejar de hablar]"
 }

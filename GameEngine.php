@@ -89,12 +89,30 @@
     foreach ($req as $i) {
       list($var, $num) = explode('@', $v);
 
-      if ((array_key_exists($var, $vars)) && ($vars[$var] > $num))
+      file_put_contents("coco.txt", print_r($vars, 1) . ' => ' . $var . ' ~ ' . $num);
+
+      if ((array_key_exists($var, $vars)) && ($vars[$var] >= $num))
         continue;
       return FALSE;
     }
 
     return TRUE;
+  }
+
+  function check_ends($ends) {
+
+    // typecast fix for reverse order object
+    foreach ((object)array_reverse((array)$ends) as $k => $v) {
+
+      // No se cumplen los requisitos para este final
+      if (!required_check($v->required)) 
+        continue;
+
+      save(USERFILE, 'info', 'end', $k);
+      //return show_end($v);
+
+    }
+    return array("goto", "OK");  // No hay final
   }
 
   // MUESTRA LAS SALIDAS
@@ -106,7 +124,8 @@
     return ($num == 1 ? _('EXIT_ONLY_ONE') : _('EXIT_AVAILABLE')) . enumerate($exits) . '.';
   }
 
-  // Comprueba si un lugar no ha sido visitado, y lo marca como tal
+  // Go to new room and save changes on file data. 
+  // Also check visited room and mark it.
   function check_visited_and_goto($room) {
 
     // go to new room
@@ -116,16 +135,23 @@
     if (!load(USERFILE, 'visited', $room))
       save(USERFILE, 'visited', $room, "1");
 
-    return 'OK';
+    return array('goto', 'OK');
   }
 
   // Check available exits
   function go_to($exit) {
+
+    // check possible ends
+    $ends = load(ROOMFILE, 'data', 'end');
+    if ($ends) 
+      return check_ends($ends);
+
+    // get possible exits
     $obj = load(ROOMFILE, 'data', 'exits');
 
     // Si no hay una salida definida...
     if (!property_exists($obj, $exit))
-      return 'FAIL';
+      return array('goto', 'FAIL');
 
     // Hay una salida definida...
     $data = $obj->{$exit};
@@ -142,7 +168,7 @@
     if (property_exists($data, 'else')) 
       return check_visited_and_goto($data->else);
     else
-      return $data->excuse;
+      return array('goto', $data->excuse);
   }
 
   // Comprueba si existe una propiedad (opcional) y si existe, aplica la función $func()
@@ -229,9 +255,7 @@
     if (property_exists($obj, 'excuse'))
       return $obj->excuse;
     else
-      return "FAIL";    // No hay excusa definida => objeto no encontrado
-
-    return "FAIL";    
+      return "FAIL";    // No hay excusa definida => objeto no encontrado   
   }
 
   // COGER
@@ -265,7 +289,6 @@
         save(USERFILE, 'inventory', $words, "1");
         return $obj->message;
       }
-      
       return _('INVENTORY_ITEM_ALREADY');
     }
 

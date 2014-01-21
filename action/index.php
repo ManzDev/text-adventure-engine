@@ -23,72 +23,69 @@
 		print_r(loadchat(CURRENT_ROOM));
 	}
 
-	// Post data to parser/analyzer
-	if ($data) {
+	// No data for parser, save process
+	if (!$data)
+		return;
 		
-		include($_SERVER['DOCUMENT_ROOT'] . '/Parser.php');
-		include($_SERVER['DOCUMENT_ROOT'] . '/GameEngine.php');
-		$data = parser(sanitize($data));
-		
-		if (strpos($data, " ") !== FALSE)
-			list($verb, $words) = explode(" ", $data, 2);
-		else {
-			$verb = $data;
-			$words = "";
-		}
+	include($_SERVER['DOCUMENT_ROOT'] . '/Parser.php');
+	include($_SERVER['DOCUMENT_ROOT'] . '/GameEngine.php');
+	$data = parser(sanitize($data));
+	
+	if (strpos($data, " ") !== FALSE)
+		list($verb, $words) = explode(" ", $data, 2);
+	else 
+		list($verb, $words) = array($data, "");
 
-		if ((!defined('USERNAME')) && ($verb != 'nickname')) {
-			$response->action = 'nickname';
-			$response->data = 'NONICK_SET';
-			print_r(json_encode($response));
-			return;
-		}
-
-		switch ($verb) {
-
-			case 'nickname':
-				$response->action = 'nickname';
-				$response->data = nickname($words);
-				break;
-			case _('EXIT_VERB'):
-				$response->action = 'salidas';
-				$response->data = exits();
-				break;
-			case _('NORTH_VERB'):
-			case _('SOUTH_VERB'):
-			case _('EAST_VERB'):
-			case _('WEST_VERB'):
-			case _('UP_VERB'):
-			case _('DOWN_VERB'):
-			case _('INSIDE_VERB'):
-			case _('OUTSIDE_VERB'):
-				$response->action = 'goto';
-				$response->data = go_to($verb);
-				break;
-			case _('INVENTORY_VERB'):
-				$response->action = 'inventario';
-				$response->data = inventory();
-				break;
-			case _('LOOK_VERB'):
-				$response->action = 'mirar';
-				$response->data = mirar($words);
-				break;
-			case _('TAKE_VERB'):
-				$response->action = 'coger';
-				$response->data = coger($words);
-				break;
-			case _('TALK_VERB'):
-				$response->action = 'hablar';
-				$response->talk = conversation($words);
-				break;
-			default: // chat
-				savechat(CURRENT_ROOM, $data);
-				$response->action = 'chat';
-				break;
-		}
-
+	if ((!defined('USERNAME')) && ($verb != 'nickname')) {
+		$response->action = 'nickname';
+		$response->data = 'NONICK_SET';
 		print_r(json_encode($response));
-
+		return;
 	}
+
+	switch ($verb) {
+
+		case 'nickname':
+			$response->action = 'nickname';
+			$response->data = nickname($words);
+			break;
+		case _('EXIT_VERB'):
+			$response->action = 'salidas';
+			$response->data = exits();
+			break;
+		case _('NORTH_VERB'):
+		case _('SOUTH_VERB'):
+		case _('EAST_VERB'):
+		case _('WEST_VERB'):
+		case _('UP_VERB'):
+		case _('DOWN_VERB'):
+		case _('INSIDE_VERB'):
+		case _('OUTSIDE_VERB'):
+			// = 'goto';
+			list($response->action, $response->data) = go_to($verb);
+			break;
+		case _('INVENTORY_VERB'):
+			$response->action = 'inventario';
+			$response->data = inventory();
+			break;
+		case _('LOOK_VERB'):
+			$response->action = 'mirar';
+			$response->data = mirar($words);
+			break;
+		case _('TAKE_VERB'):
+			$response->action = 'coger';
+			$response->data = coger($words);
+			break;
+		case _('TALK_VERB'):
+			$response->action = 'hablar';
+			$response->talk = conversation($words);
+			break;
+		default: // chat
+			savechat(CURRENT_ROOM, $data);
+			$response->action = 'chat';
+			break;
+	}
+
+	print_r(json_encode($response));
 
 ?>

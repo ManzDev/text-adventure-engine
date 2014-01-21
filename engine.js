@@ -1,7 +1,7 @@
 /**
  ** IHEngine (Innocent Hill Engine)
  ** ===============================
- ** Motor para aventuras conversacionales online multijugador
+ ** Motor-script para aventuras conversacionales simples con soporte log-chat multijugador
  ** 
  ** Autor: J. Román (@Manz)
  **/
@@ -16,6 +16,12 @@ $( document ).ready(function() {
 
 function doInfo() {
 	obj = doIt({"info":"1"});
+
+	if (obj.action == 'end') 
+		return show_end(obj);
+	if (obj.action == 'endurl')
+		window.location.href = obj.data;
+
 	$('#text').text(obj.data.description);
 	if (obj.data.image != undefined)
 		$('#img').attr('src', '/img/' + obj.data.image);
@@ -46,6 +52,14 @@ function highlight_elem(tag, color) {
 	oldcolor = $('#input').css('background-color');
 	setTimeout(function() { $('#input').addClass('highlight').css('background-color', color); }, 25);
 	setTimeout(function() { $('#input').removeClass('highlight').css('background-color', oldcolor); }, 300);
+}
+
+function show_end(obj) {
+	$('body').val('');
+	score = (obj.data.score ? '<p><strong>Score: ' +obj.data.score+ '</strong></p>' : '');
+	$('body').append('<div class="endletter"><div><h2>'+ obj.data.title +'</h2><p>'+ obj.data.text +'</p>'+score+'</div></div>'+
+					 '<div class="stars"></div><div class="twinkling"></div><div class="clouds"></div>');
+	return;
 }
 
 function doAction(s) {
@@ -146,6 +160,14 @@ function doAction(s) {
 				}
 				$('#text').text(message);
 			}
+		}
+
+		if (obj.action == 'end') {
+			show_end(obj);
+		}
+
+		if (obj.action == 'endurl') {
+			window.location.href = obj.data;
 		}
 
 		if (obj.action == 'chat') {

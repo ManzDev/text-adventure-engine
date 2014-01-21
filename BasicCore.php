@@ -31,6 +31,36 @@
 
 	// FUNCTIONS
 
+	function show_end($v) {
+
+	    if (!property_exists($v, 'target')) {
+	      $end = new StdClass();	    
+
+	      // Show text
+	      $end->text = (property_exists($v, 'text') ? $v->text : _('END_ADVENTURE'));
+
+	      // Show score
+	      if (property_exists($v, 'showscore'))
+	        $end->score = load(USERFILE, 'vars', $v->showscore);
+
+	  	  // Title of nice window
+	      $end->title = (property_exists($v, 'title') ? $v->title : _('WORDS_END'));
+
+	      return array("end", $end);
+		}
+
+		return array("endurl", $v->target);	    
+	}
+
+	// Detected end
+	if (isset($datauser->end)) {
+		$v = (object)load(ROOMFILE, 'data', 'end', $datauser->end);
+		$response = new StdClass();
+		list($response->action, $response->data) = show_end($v);
+		print_r(json_encode($response));
+		exit();
+	}
+
 	// Sanitize user input string
 	function sanitize($s) {
 		// <-- Here remove Spam URLs
@@ -42,20 +72,14 @@
 	function enumerate($array, $empty = '') {
 
 	  $n = count($array);   // total items
-	    
-	  // list with 0 items
-	  if ($n === 0) {
-	    return $empty;
-	  } 
-	  // list with 1 item
-	  else if ($n === 1) {
-	    return $array[0];
-	  } 
-	  // list with 2 or more items
-	  else 
-	    return implode(', ', array_slice($array, 0, $n -1)) . ' '._('WORDS_AND').' ' . $array[$n -1];
-	}
 
+	  // list with 2 or more items
+	  if ($n > 1)
+	  	return implode(', ', array_slice($array, 0, $n -1)) . ' '._('WORDS_AND').' ' . $array[$n -1];
+	    
+	  // list with 0 or 1 items
+	  return ($n === 0 ? $empty : $array[0]);	    
+	}
 	
 
 ?>
