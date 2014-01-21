@@ -14,18 +14,20 @@
 	define('USERID', md5($_SERVER['REMOTE_ADDR']));
 	define('USERFILE', USERDIR . USERID .'.json');
 
-	if (!isset($_COOKIE['mzgame'])) {
-		// <-- here redirect for set nickname
-		$nickname = 'Manz';	// temp
-		setcookie('mzgame', USERID, time()+3600, "/", $_SERVER['SERVER_NAME']);
-		setcookie('mzname', $nickname, time()+3600, "/", $_SERVER['SERVER_NAME']);
-	}	
+	// FIRST TIME (NEW USER)
+	// Crea un nuevo fichero de datos de usuario de un molde de base
+	if (!file_exists(USERFILE)) {
+		$base = json_decode(file_get_contents(USERDIR . '/base.json'));
+		file_put_contents(USERFILE, json_encode($base, JSON_PRETTY_PRINT));
+	}
 
-	$datauser = load(USERFILE, 'info');
-	define('CURRENT_ROOM', $datauser->room);	// load(USERFILE, 'info', 'room')
-	define('USERNAME', $datauser->name);
+	$datauser = (object)load(USERFILE, 'info');
+	define('CURRENT_ROOM', $datauser->room);
+
+	if (isset($datauser->name))
+		define('USERNAME', $datauser->name);
+
 	define('ROOMFILE', ROOMDIR . CURRENT_ROOM .'.json');
-
 
 	// FUNCTIONS
 

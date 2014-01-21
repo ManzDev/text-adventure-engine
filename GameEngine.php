@@ -1,11 +1,34 @@
 <?php
 
+  // Set nickname user on base userfile data and cookie
+  function nickname($nickname) {
+
+    if (!isset($_COOKIE['mzname'])) {
+
+      if (load(USERFILE, 'info', 'name'))
+        return "NONICK_EXIST";
+
+      // check nickname
+      if (!ctype_alnum($nickname))
+        return "NONICK_ERROR";
+
+      $nickname = ucfirst($nickname);
+      setcookie('mzgame', USERID, time()+3600, "/", $_SERVER['SERVER_NAME']);
+      setcookie('mzname', $nickname, time()+3600, "/", $_SERVER['SERVER_NAME']);
+      save(USERFILE, 'info', 'name', $nickname);
+      return "OK";
+      
+    }
+    else 
+      return "NONICK_EXIST"; // ya existe
+  }
+
   // FIND SYNONYMS
   // Si los encuentra, devuelve la palabra principal.
   // Si no los encuentra, la palabra buscada.
   function find_synonyms($palabra) {
 
-    $synonyms = load(ROOMFILE, 'synonyms');
+    $synonyms = (array)load(ROOMFILE, 'synonyms');
 
     foreach ($synonyms as $p => $s ) {
 
@@ -75,60 +98,51 @@
   }
 
   // MUESTRA LAS SALIDAS
-  // Sólo muestra las salidas existentes en la habitación actual (aunque no se puedan utilizar). No analiza requisitos.
+  // Muestra TODAS las salidas existentes en la habitación 
+  // actual (aunque no se cumplan los requisitos)
   function exits() {
-    $obj = load(ROOMFILE, 'data', 'exits');
-
-    // Extrae sólo la clave de exits (las salidas presentes)
-    foreach ($obj as $k => $v)
-      $exits[] = $k;
-    unset($obj);
-
+    $exits = array_keys((array)load(ROOMFILE, 'data', 'exits'));
     $num = count($exits);
-    if ($num == 1)
-      return _('EXIT_ONLY_ONE') . enumerate($exits) . ".";
-    else 
-      return _('EXIT_AVAILABLE') . enumerate($exits) . ".";
+    return ($num == 1 ? _('EXIT_ONLY_ONE') : _('EXIT_AVAILABLE')) . enumerate($exits) . '.';
   }
 
   // Comprueba si un lugar no ha sido visitado, y lo marca como tal
-  function check_visited($room) {
+  function check_visited_and_goto($room) {
+
+    // go to new room
+    save(USERFILE, 'info', 'room', $room);
+
+    // check visited (and mark)
     if (!load(USERFILE, 'visited', $room))
       save(USERFILE, 'visited', $room, "1");
+
+    return 'OK';
   }
 
-  // VA HACIA UNA SALIDA
+  // Check available exits
   function go_to($exit) {
     $obj = load(ROOMFILE, 'data', 'exits');
 
-    // Si hay una salida definida...
-    if (property_exists($obj, $exit)) {
+    // Si no hay una salida definida...
+    if (!property_exists($obj, $exit))
+      return 'FAIL';
 
-      $data = $obj->{$exit};
-      // Simple format
-      if (is_string($data)) {
-        save(USERFILE, 'info', 'room', $data);
-        check_visited($data);
-      }
-      else {
-        // Complex format
-        if (required_check($data->required)) {
-          save(USERFILE, 'info', 'room', $data->target);
-          check_visited($data->target);
-        }
-        else {
-          // No se cumplen requisitos
-          if (property_exists($data, 'else')) {
-            save(USERFILE, 'info', 'room', $data->else);
-            check_visited($data->else);
-          }
-          else
-            return $data->excuse;
-        }
-      }
-      return 'OK';
-    }
-    return 'FAIL';
+    // Hay una salida definida...
+    $data = $obj->{$exit};
+
+    // ** Simple format
+    if (is_string($data)) 
+      return check_visited_and_goto($data);
+
+    // ** Complex format
+    if (required_check($data->required)) 
+      return check_visited_and_goto($data->target);
+
+    // No se cumplen requisitos
+    if (property_exists($data, 'else')) 
+      return check_visited_and_goto($data->else);
+    else
+      return $data->excuse;
   }
 
   // Comprueba si existe una propiedad (opcional) y si existe, aplica la función $func()
@@ -138,10 +152,11 @@
       
       $array = $obj->{$prop};
 
-      // Simple format
+      // ** Simple format
       if (is_string($array))
         $array = array($array);
 
+      // ** Array format
       foreach ($array as $i)
         $func($i);
     }
@@ -158,7 +173,7 @@
   // Bloque de parámetros opcionales
   function check_optional_param($obj) {
     //if ($obj->sound) // play sound
-    check_saveparam($obj, 'inc', function($p) { 
+    check_saveparam($obj, 'inc', function($p) {
       list($v, $inc) = get_var_and_number($p);
       $inc = (int)($inc === NULL ? 1 : $inc);
       $var = (int)load(USERFILE, 'vars', $v);
@@ -175,56 +190,46 @@
     // PTE: Incrementar score
   }
 
+  // PTE: Buscar objeto en inventario
+  function mirar_inventory($words) {
+  }
+
   // MIRAR
   function mirar($words) {
     $words = find_synonyms($words);
     $obj = load(ROOMFILE, 'mirar', $words);
 
-    // Si hay un objeto que mirar...
-    if ($obj !== NULL) {
+    // Si no hay un objeto en el lugar, busca en el inventario...
+    if ($obj === NULL) 
+      return mirar_inventory($words);
+    
+    // ** Simple format
+    if (is_string($obj))
+      return $obj;
+    
+    // ** Complex format
+    // No hay restricciones
+    if (!property_exists($obj, 'required')) {
+      check_optional_param($obj);
+      return $obj->message;
+    }
 
-      // Simple format
-      if (is_string($obj)) {
-        return $obj;
+    // ¿Se cumplen las restricciones?
+    if (required_check($obj->required)) {
+
+      // Only first time
+      if (!load(USERFILE, 'actions', $words . '_seen')) {
+        check_optional_param($obj);
+        save(USERFILE, 'actions', $words . '_seen', "1");
       }
-      else {
-        // Complex format
+      return $obj->message;
+    }
 
-        // Hay restricciones
-        if (property_exists($obj, 'required')) {
-
-          // ¿Se cumplen las restricciones?
-          if (required_check($obj->required)) {
-            // OK, SAFISFIED
-            
-            // Only first time
-            if (!load(USERFILE, 'actions', $words . '_seen')) {
-              check_optional_param($obj);
-              save(USERFILE, 'actions', $words . '_seen', "1");
-            }
-            return $obj->message;
-          }
-          else {
-            // NO, EXCUSE
-            if ($obj->excuse)
-              return $obj->excuse;
-            // Si no hay excusa definida, muestra una de objeto no encontrado
-            else
-              return "FAIL";
-          }
-
-        }
-        // No hay restricciones
-        else {
-          check_optional_param($obj);
-          return $obj->message;
-        }
-
-      }
-
-    } // hay objeto
-
-    // PTE: Buscar en inventario
+    // No se cumplen las restricciones
+    if (property_exists($obj, 'excuse'))
+      return $obj->excuse;
+    else
+      return "FAIL";    // No hay excusa definida => objeto no encontrado
 
     return "FAIL";    
   }
@@ -234,69 +239,49 @@
     $words = find_synonyms($words);
     $obj = load(ROOMFILE, 'coger', $words);
 
-    // Si hay un objeto que coger...
-    if ($obj !== NULL) {
+    // Si no hay objeto en el lugar...
+    if ($obj === NULL)
+      return "FAIL";  
 
-      // Simple format
-      if (is_string($obj)) {
+    // ** Simple format
+    if (is_string($obj)) {
+      save(USERFILE, 'inventory', $words, "1");
+      return $obj;
+    }
+
+    // ** Complex format
+    // No hay restricciones
+    if (!property_exists($obj, 'required')) {
+      check_optional_param($obj);
+      return $obj->message;
+    }
+
+    // ¿Se cumplen las restricciones?
+    if (required_check($obj->required)) {
+   
+      // Only first time
+      if (!load(USERFILE, 'inventory', $words)) {
+        check_optional_param($obj);
         save(USERFILE, 'inventory', $words, "1");
-        return $obj;
+        return $obj->message;
       }
-      else {
-        // Complex format
+      
+      return _('INVENTORY_ITEM_ALREADY');
+    }
 
-        // Hay restricciones
-        if (property_exists($obj, 'required')) {
-
-          // ¿Se cumplen las restricciones?
-          if (required_check($obj->required)) {
-            // OK, SAFISFIED
-            
-            // Only first time
-            if (!load(USERFILE, 'inventory', $words)) {
-              check_optional_param($obj);
-              save(USERFILE, 'inventory', $words, "1");
-              return $obj->message;
-            }
-            else
-              return _('INVENTORY_ITEM_ALREADY');
-          }
-          else {
-            // NO, EXCUSE
-            if ($obj->excuse)
-              return $obj->excuse;
-            // Si no hay excusa definida, muestra una de objeto no encontrado
-            else
-              return "FAIL";
-          }
-
-        }
-        // No hay restricciones
-        else {
-          check_optional_param($obj);
-          return $obj->message;
-        }
-
-      }
-
-    } // hay objeto
-
-    return "FAIL";    
+    // No se cumplen las restricciones
+    if (property_exists($obj, 'excuse'))
+      return $obj->excuse;
+    else
+      return "FAIL";    // No hay excusa definida => objeto no encontrado
   }
 
   // MUESTRA EL INVENTARIO
   // Analiza el inventario y lo devuelve en forma de lista al usuario.
   function inventory() {
-    $obj = load(USERFILE, 'inventory');
-    foreach ($obj as $k => $v)
-      $inv[] = $k;
-    unset($obj);
-
+    $inv = array_keys((array)load(USERFILE, 'inventory'));
     $num = count($inv);
-    if ($num == 0)
-      return _('INVENTORY_EMPTY');
-    else
-      return _('INVENTORY_LIST') . enumerate($inv) . ".";
+    return ($num == 0 ? _('INVENTORY_EMPTY') : _('INVENTORY_LIST') . enumerate($inv) . '.');
   }
 
   // PTE: Soporte de conversación al estilo Aventura gráfica

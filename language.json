@@ -37,7 +37,7 @@
 	"INVENTORY_VERB" : "inventario",
 	"INVENTORY_SHORT" : "i",
 	"INVENTORY_ITEM_ALREADY_EXIST" : "Ya lo tengo.",
-	"INVENTORY_EMPTY" : "Ya lo tengo.",
+	"INVENTORY_EMPTY" : "No llevo nada encima.",
 	"INVENTORY_LIST" : "Tengo los siguientes objetos en mi inventario: ",
 
 	"LOOK_EXCUSES" : ["¿Qué mire el qué?", 
@@ -59,6 +59,15 @@
 					 "Por ahí no hay salida.",
 					 "No hay salida hacia allá.",
 					 "No puedo. Para ver las direcciones posibles, escribe: salidas."],
+
+	"NONICK_EXCUSES" : ["Siento como si no fuera nadie...",
+						"Algo me impide hablar.",
+						"Creo que primero debería averiguar quien soy...",
+						"Escribe: nickname [nombre] para comenzar a jugar",
+						"¿Y si elijo un nombre para representarme?"],
+
+	"NONICK_EXIST" : "No puedo ponerme un nuevo nombre, ya tengo uno.",
+	"NONICK_ERROR" : "No se puede utilizar ese nick.",
 
 	"TALK_STOP" : "[Dejar de hablar]"
 }

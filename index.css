@@ -60,6 +60,23 @@ body {
     transition: background-color .75s ease-out;
 }
 
+/* New User */
+
+.box {
+  background:#CCC;
+  border-radius:10px;
+  padding:1em;
+  color:#333;
+  width:600px
+}
+
+.box #nickname {
+  border:2px solid #AAA;
+  padding:0.4em;
+  min-width:250px;
+  font-family:'Press Start 2P';
+}
+
 /* Conversaciones */
 
 .talk {
@@ -79,3 +96,4 @@ body {
 .talk .dark {
     color:#004400;
 }
+

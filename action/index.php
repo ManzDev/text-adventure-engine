@@ -13,7 +13,7 @@
 	// Get current room data
 	if ($info == 1) {
 		$response->action = 'info';
-		$response->data = load(ROOMFILE, 'info');
+		$response->data = (array)load(ROOMFILE, 'info');
 		print_r(json_encode($response));
 	}
 
@@ -37,8 +37,19 @@
 			$words = "";
 		}
 
+		if ((!defined('USERNAME')) && ($verb != 'nickname')) {
+			$response->action = 'nickname';
+			$response->data = 'NONICK_SET';
+			print_r(json_encode($response));
+			return;
+		}
+
 		switch ($verb) {
 
+			case 'nickname':
+				$response->action = 'nickname';
+				$response->data = nickname($words);
+				break;
 			case _('EXIT_VERB'):
 				$response->action = 'salidas';
 				$response->data = exits();

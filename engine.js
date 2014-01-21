@@ -76,14 +76,38 @@ function doAction(s) {
 		});
 
 		request.done(function(data) {
-			console.log(data);
 			obj = jQuery.parseJSON(data); //data; 
 		});
 
-		console.log(obj);
-
 		if (obj.data) {
 			$('#text').text(obj.data);
+		}
+
+		if (obj.action == 'nickname') {
+			if (obj.data == 'NONICK_SET') {
+				var n = 1 + Math.floor(Math.random() * lang['NONICK_EXCUSES'].length);
+				m = lang['NONICK_EXCUSES'];
+				var message = m[n-1];
+				$('#text').text(message);
+			}
+			else if (obj.data == 'NONICK_EXIST') {
+				$('#text').text(lang['NONICK_EXIST']);
+				$('#input').val('').focus();
+				return;
+			}
+			else if (obj.data == 'NONICK_ERROR') {
+				$('#text').text(lang['NONICK_ERROR']);
+			}
+			else if (obj.data == 'OK') {
+				$('#text').text('OK!');
+				$('#input').val('').focus();
+				highlight_elem('#input', '#444');
+				return;
+			}
+
+			highlight_elem('#input', '#444');
+			$('#input').val('nickname ').focus();
+			return;
 		}
 
 		if (obj.action == 'mirar') {
