@@ -37,8 +37,13 @@ Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for eas
 
 - Clone repo (or unzip) on your webserver
 - Go your website
-- [How create my first game!](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
 - Enjoy!
+
+### Create my own games
+
+- This engine come with a little example
+- [How create my first game!](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
+- More info on [wiki](https://github.com/ManzDev/text-adventure-engine/wiki)
 
 ### Developer
 
