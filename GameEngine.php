@@ -189,17 +189,18 @@
     }
   }
 
-  // Devuelve el nombre de la variable y el incremento/decremento
+  // Check if exists amount to inc/dec, and apply
   function get_var_and_number($p) {
     if (strpos($p, '@') === FALSE)
       return array($p, 1);
-    else
-      return explode('@', $p);
+    
+    return explode('@', $p);
   }
 
-  // Bloque de parámetros opcionales
+  // Optional parameters block
   function check_optional_param($obj) {
-    //if ($obj->sound) // play sound
+
+    // PTE: if ($obj->sound) // play sound
     check_saveparam($obj, 'inc', function($p) {
       list($v, $inc) = get_var_and_number($p);
       $inc = (int)($inc === NULL ? 1 : $inc);
@@ -214,7 +215,6 @@
     });
     check_saveparam($obj, 'setAction', function($p) { save(USERFILE, 'actions', $p, "1"); });
     check_saveparam($obj, 'setObject', function($p) { save(USERFILE, 'inventory', $p, "1"); });
-    // PTE: Incrementar score
   }
 
   // MUESTRA EL INVENTARIO
