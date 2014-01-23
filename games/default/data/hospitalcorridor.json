@@ -1,0 +1,20 @@
+{
+	"info": {
+		"description": ""
+	},
+	"data": {
+		"ends": {
+			"good_ending": {
+        "required": "score@10",
+				"title": "GOOD ENDING",
+				"text": "Congratulations, you finished this example game!",
+				"showscore": "score"
+			},
+			"bad_ending": {
+				"title": "BAD ENDING",
+				"text": "Congratulations, you finished this example game!",
+				"showscore": "score"
+			}			
+		}
+	}
+}

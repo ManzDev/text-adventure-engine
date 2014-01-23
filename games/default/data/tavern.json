@@ -28,7 +28,7 @@
     "barra": {
       "required": "tarjeta",
       "message": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos.",
-      "excuse": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos. Aquí hay una tarjeta."
+      "excuse": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos. Aquí hay una llave."
     },
     "estanterias": "Hay varias bebidas en la estantería... Al parecer la que más se consume es el grog.",
     "bebidas": "Vino, Whiskey y Grog.",
@@ -44,6 +44,6 @@
     "panfleto": "El panfleto dice: Reena Laux, periodista."    
   },
   "coger": {
-    "tarjeta": "Has cogido la tarjeta."
+    "llave": "Has cogido la llave."
   }
 }
