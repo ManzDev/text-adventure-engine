@@ -1,5 +1,6 @@
 <?php
-
+	
+	$time = microtime(1);
 	include($_SERVER['DOCUMENT_ROOT'] . '/Localize.php'); 		// Constants for Localization
 	include($_SERVER['DOCUMENT_ROOT'] . '/FileDriver.php');		// FileFlat Driver
 	include($_SERVER['DOCUMENT_ROOT'] . '/BasicCore.php');		// Constants & Functions
@@ -14,6 +15,13 @@
 	if ($info == 1) {
 		$response->action = 'info';
 		$response->data = (array)load(ROOMFILE, 'info');
+
+		if (array_key_exists('image', $response->data))
+			$response->data['image'] = RAWDIR . $response->data['image'];
+
+		if (array_key_exists('music', $response->data))
+			$response->data['music'] = RAWDIR . $response->data['music'];
+
 		print_r(json_encode($response));
 	}
 
@@ -86,6 +94,7 @@
 			break;
 	}
 
+	file_put_contents("profiler.txt", memory_get_usage() . ' => ' . (microtime(1) - $time) );
 	print_r(json_encode($response));
 
 ?>

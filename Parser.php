@@ -1,11 +1,13 @@
 <?php
 
 	// PARSER (TEMPORAL)
-  // Parser encargado de construir una frase de salida fácil de analizar para el juego.
-  // El parser actual es muy básico y sólo elimina carácteres o artículos innecesarios.
-  // Ej:
+  // This parser create a easy-analize output sentence for game.
+  // Current parser is very basic and only remove chars or unneeded words
+  // Sample:
   // -> ENTRADA: "quiero mirar el coche aparcado"
   // -> SALIDA: "mirar coche"
+  //
+  // NOTE: Parser need be fast and efficient (run constantly). Avoid regexp or expensive process.
   function parser($data) {
 
   	// Suprimimos posibles espacios múltiples
@@ -59,7 +61,7 @@
         $data = $words[1];
 
       if (in_array($words[0], _('LOOK_SYN'))) {
-        $words[0] = 'LOOK_VERB';
+        $words[0] = _('LOOK_VERB');
         $data = implode(' ', $words);
       }
 

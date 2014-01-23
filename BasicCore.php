@@ -3,13 +3,18 @@
 	// REQUIRE: load/save (from *Driver)
 
 	// CONSTANTS
-	define('SECURE_JSON', 1);			// Strip tags from JSON content
+	define('SECURE_JSON', 1);				// Strip tags from JSON content
+	define('CURRENT_GAME', 'default');		// Change dir for play other game
 
 	// PATHS DIR & FILES
 	define('APPDIR',  $_SERVER['DOCUMENT_ROOT']);
-	define('USERDIR', APPDIR . '/users/');
-	define('ROOMDIR', APPDIR . '/data/');
-	define('CHATDIR', APPDIR . '/chats/');
+	define('GAMEDIR', APPDIR . 'games/' . CURRENT_GAME);	
+	define('USERDIR', GAMEDIR . '/users/');
+	define('ROOMDIR', GAMEDIR . '/data/');
+	define('CHATDIR', GAMEDIR . '/chats/');
+
+	// Public dir
+	define('RAWDIR', str_replace(APPDIR, '', GAMEDIR) . '/assets/');
 
 	define('USERID', md5($_SERVER['REMOTE_ADDR']));
 	define('USERFILE', USERDIR . USERID .'.json');

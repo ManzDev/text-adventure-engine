@@ -14,7 +14,7 @@
 		<div id="text"></div>
 		<div id="chat"></div>
 		<form onSubmit="doAction(document.getElementById('input').value); return false;">
-			<input type="text" id="input" value="" autocomplete="off" />
+			<input type="text" id="input" value="" autocomplete="off" spellcheck="false" />
 		</form>
 	</div>
 

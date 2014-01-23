@@ -37,7 +37,7 @@
 
 	"INVENTORY_VERB" : "inventario",
 	"INVENTORY_SHORT" : "i",
-	"INVENTORY_ITEM_ALREADY_EXIST" : "Ya lo tengo.",
+	"INVENTORY_ITEM_ALREADY" : "Ya lo tengo.",
 	"INVENTORY_EMPTY" : "No llevo nada encima.",
 	"INVENTORY_LIST" : "Tengo los siguientes objetos en mi inventario: ",
 
@@ -69,6 +69,7 @@
 
 	"NONICK_EXIST" : "No puedo ponerme un nuevo nombre, ya tengo uno.",
 	"NONICK_ERROR" : "No se puede utilizar ese nick.",
+	"NONICK_EMPTY" : "Escribe un nick o apodo para tu jugador",
 
 	"END_ADVENTURE" : "¡Has terminado la aventura!",
 

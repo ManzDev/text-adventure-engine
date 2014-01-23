@@ -9,6 +9,9 @@
         return "NONICK_EXIST";
 
       // check nickname
+      if (strlen(trim($nickname)) == 0)
+        return "NONICK_EMPTY";
+
       if (!ctype_alnum($nickname))
         return "NONICK_ERROR";
 
@@ -88,8 +91,6 @@
     // Comprueba si se supera el mínimo requerido
     foreach ($req as $i) {
       list($var, $num) = explode('@', $v);
-
-      file_put_contents("coco.txt", print_r($vars, 1) . ' => ' . $var . ' ~ ' . $num);
 
       if ((array_key_exists($var, $vars)) && ($vars[$var] >= $num))
         continue;
@@ -216,8 +217,17 @@
     // PTE: Incrementar score
   }
 
+  // MUESTRA EL INVENTARIO
+  // Analiza el inventario y lo devuelve en forma de lista al usuario.
+  function inventory() {
+    $inv = array_keys((array)load(USERFILE, 'inventory'));
+    $num = count($inv);
+    return ($num == 0 ? _('INVENTORY_EMPTY') : _('INVENTORY_LIST') . enumerate($inv) . '.');
+  }
+
   // PTE: Buscar objeto en inventario
   function mirar_inventory($words) {
+    return "FAIL"; // temporalmente, no examina inventario
   }
 
   // MIRAR
@@ -226,7 +236,7 @@
     $obj = load(ROOMFILE, 'mirar', $words);
 
     // Si no hay un objeto en el lugar, busca en el inventario...
-    if ($obj === NULL) 
+    if ($obj === NULL)
       return mirar_inventory($words);
     
     // ** Simple format
@@ -255,7 +265,9 @@
     if (property_exists($obj, 'excuse'))
       return $obj->excuse;
     else
-      return "FAIL";    // No hay excusa definida => objeto no encontrado   
+      return "FAIL";    // No hay excusa definida => objeto no encontrado 
+
+    return "FAIL";  
   }
 
   // COGER
@@ -265,48 +277,48 @@
 
     // Si no hay objeto en el lugar...
     if ($obj === NULL)
-      return "FAIL";  
+      return "FAIL";
+
+    $objinv = load(USERFILE, 'inventory', $words);
+
+    if ($objinv == "1")
+      return _('INVENTORY_ITEM_ALREADY');
 
     // ** Simple format
     if (is_string($obj)) {
-      save(USERFILE, 'inventory', $words, "1");
-      return $obj;
+      $temp = $obj;
+      $obj = new StdClass();
+      $obj->message = $temp;
     }
 
     // ** Complex format
     // No hay restricciones
     if (!property_exists($obj, 'required')) {
-      check_optional_param($obj);
-      return $obj->message;
+      if (!$objinv) {
+        check_optional_param($obj);
+        save(USERFILE, 'inventory', $words, "1");
+        return $obj->message;
+      }
+      return "FAIL";
     }
 
     // ¿Se cumplen las restricciones?
     if (required_check($obj->required)) {
    
       // Only first time
-      if (!load(USERFILE, 'inventory', $words)) {
+      if (!$objinv) {
         check_optional_param($obj);
         save(USERFILE, 'inventory', $words, "1");
         return $obj->message;
       }
-      return _('INVENTORY_ITEM_ALREADY');
     }
 
-    // No se cumplen las restricciones
-    if (property_exists($obj, 'excuse'))
-      return $obj->excuse;
-    else
-      return "FAIL";    // No hay excusa definida => objeto no encontrado
+    // No se cumplen las restricciones 
+    // Si no hay excusa definida => objeto no encontrado
+    return (property_exists($obj, 'excuse') ? $obj->excuse : "FAIL");
   }
 
-  // MUESTRA EL INVENTARIO
-  // Analiza el inventario y lo devuelve en forma de lista al usuario.
-  function inventory() {
-    $inv = array_keys((array)load(USERFILE, 'inventory'));
-    $num = count($inv);
-    return ($num == 0 ? _('INVENTORY_EMPTY') : _('INVENTORY_LIST') . enumerate($inv) . '.');
-  }
-
+  /*
   // PTE: Soporte de conversación al estilo Aventura gráfica
   function conversation($char) {
 
@@ -326,5 +338,6 @@
     
     return $talk;
   }
+  */
 
 ?>

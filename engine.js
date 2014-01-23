@@ -24,10 +24,10 @@ function doInfo() {
 
 	$('#text').text(obj.data.description);
 	if (obj.data.image != undefined)
-		$('#img').attr('src', '/img/' + obj.data.image);
+		$('#img').attr('src', obj.data.image);
 	$('#chat').load('/action/?chat=1');
 	if (obj.data.music != undefined)
-		music = new Audio('/img/'+ obj.data.music).play();
+		music = new Audio(obj.data.music).play();
 }
 
 function doIt(data) {
@@ -93,9 +93,8 @@ function doAction(s) {
 			obj = jQuery.parseJSON(data); //data; 
 		});
 
-		if (obj.data) {
+		if (obj.data) 
 			$('#text').text(obj.data);
-		}
 
 		if (obj.action == 'nickname') {
 			if (obj.data == 'NONICK_SET') {
@@ -109,6 +108,9 @@ function doAction(s) {
 				$('#input').val('').focus();
 				return;
 			}
+			else if (obj.data == 'NONICK_EMPTY') {
+				$('#text').text(lang['NONICK_EMPTY']);
+			}			
 			else if (obj.data == 'NONICK_ERROR') {
 				$('#text').text(lang['NONICK_ERROR']);
 			}
