@@ -1,4 +1,4 @@
-![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/game.png)
+![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/text-adventure.gif)
 
 # Text Adventure Engine
 
