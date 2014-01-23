@@ -16,13 +16,19 @@
 		$response->action = 'info';
 		$response->data = (array)load(ROOMFILE, 'info');
 
+		if (!array_key_exists('name', $response->data))
+			$response->data['name'] = CURRENT_ROOM;
+
 		if (array_key_exists('image', $response->data))
 			$response->data['image'] = RAWDIR . $response->data['image'];
+		else
+			$response->data['image'] = RAWDIR . CURRENT_ROOM . '.jpg';
 
 		if (array_key_exists('music', $response->data))
 			$response->data['music'] = RAWDIR . $response->data['music'];
 
 		print_r(json_encode($response));
+		return;
 	}
 
 	// Get current chat room data
