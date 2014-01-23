@@ -1,0 +1,76 @@
+{
+	"NORTH_SHORT" : "n",
+	"NORTH_VERB" : "north",
+	"SOUTH_SHORT" : "s",
+	"SOUTH_VERB" : "south",
+	"EAST_SHORT" : "e",
+	"EAST_VERB" : "east",
+	"WEST_SHORT" : "w",
+	"WEST_VERB" : "west",
+
+	"UP_VERB" : "up",
+	"DOWN_VERB" : "down",
+	"INSIDE_VERB" : "enter",
+	"OUTSIDE_VERB" : "exit",
+
+	"EXIT_ONLY_ONE" : "Only one exit: ",
+	"EXIT_AVAILABLE" : "Possible exits are: ",
+
+	"WORDS_CONNECTORS" : [" to ", " the ", " a ", " for ", " it ", " an ", " at ", " with "
+								" of ", " in ", " on ", " and ", " one ", " my ", 
+								" this ", " these ", " that ", " here ", " until ", 
+								" since ", " several ", " want "],
+	"WORDS_AND" : "and",
+	"WORDS_END" : "END",
+
+	"LOOK_VERB" : "look",
+	"TAKE_VERB" : "take",		
+	"EXIT_VERB" : "exits",
+	"EXIT_SHORT" : "x",
+	"TALK_VERB" : "talk",			
+
+	"GOTO_SYN" : ["ir", "andar", "caminar"],
+	"LOOK_SYN" : ["examinar", "observar"],
+	"TAKE_SYN" : ["agarrar", "tomar", "sujetar", "obtener"],
+	"TALK_SYN" : ["conversar", "dialogar", "decir"],
+
+	"INVENTORY_VERB" : "inventory",
+	"INVENTORY_SHORT" : "i",
+	"INVENTORY_ITEM_ALREADY" : "I've got it.",
+	"INVENTORY_EMPTY" : "I have nothing on my inventory.",
+	"INVENTORY_LIST" : "I have this items on my inventory: ",
+
+	"LOOK_EXCUSES" : ["¿Qué mire el qué?", 
+					 "No veo nada aquí, ni en mi inventario, parecido a eso.", 
+					 "No sé a qué te refieres exactamente...",
+					 "¿Qué mire QUÉ?",
+					 "Erhm... ¿Qué dices que quieres que mire?",
+					 "No se exactamente a que te refieres..."],
+	"TAKE_EXCUSES" : ["¿Que coja el qué? No veo como me podría ayudar eso.", 
+					 "Mejor no.", 
+					 "Olvídalo.",
+					 "No entiendo a qué te refieres...",
+					 "No me parece buena idea.",
+					 "No me llevaré eso a ninguna parte."],
+
+	"GOTO_EXCUSES" : ["No puedo ir en esa dirección.", 
+					 "No hay ninguna salida hacia allá.", 
+					 "No hay salida en esa dirección.",
+					 "Por ahí no hay salida.",
+					 "No hay salida hacia allá.",
+					 "No puedo. Para ver las direcciones posibles, escribe: salidas."],
+
+	"NONICK_EXCUSES" : ["Siento como si no fuera nadie...",
+						"Algo me impide hablar.",
+						"Creo que primero debería averiguar quien soy...",
+						"Escribe: nickname [nombre] para comenzar a jugar",
+						"¿Y si elijo un nombre para representarme?"],
+
+	"NONICK_EXIST" : "I can't use a new nickname, I have nickname in use.",
+	"NONICK_ERROR" : "I can't use this nickname.",
+	"NONICK_EMPTY" : "Write a nick or name for your player",
+
+	"END_ADVENTURE" : "You've finished game!",
+
+	"TALK_STOP" : "[End conversation]"
+}
