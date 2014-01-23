@@ -106,8 +106,9 @@
     foreach ((object)array_reverse((array)$ends) as $k => $v) {
 
       // No se cumplen los requisitos para este final
-      if (!required_check($v->required)) 
-        continue;
+      if (property_exists($v, 'required'))
+        if (!required_check($v->required))
+          continue;
 
       save(USERFILE, 'info', 'end', $k);
       //return show_end($v);
@@ -136,16 +137,16 @@
     if (!load(USERFILE, 'visited', $room))
       save(USERFILE, 'visited', $room, "1");
 
+    // check possible ends
+    $ends = load(ROOMDIR . $room . '.json', 'data', 'ends');
+    if ($ends) 
+      return check_ends($ends);    
+
     return array('goto', 'OK');
   }
 
   // Check available exits
   function go_to($exit) {
-
-    // check possible ends
-    $ends = load(ROOMFILE, 'data', 'end');
-    if ($ends) 
-      return check_ends($ends);
 
     // get possible exits
     $obj = load(ROOMFILE, 'data', 'exits');

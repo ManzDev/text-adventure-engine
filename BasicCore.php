@@ -59,7 +59,7 @@
 
 	// Detected end
 	if (isset($datauser->end)) {
-		$v = (object)load(ROOMFILE, 'data', 'end', $datauser->end);
+		$v = (object)load(ROOMFILE, 'data', 'ends', $datauser->end);
 		$response = new StdClass();
 		list($response->action, $response->data) = show_end($v);
 		print_r(json_encode($response));
