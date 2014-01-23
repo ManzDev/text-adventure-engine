@@ -4,8 +4,6 @@
 
 Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for easy-create (without developer knowledge) classic interactive text adventures with support for simultaneous players and realtime chat.
 
-[How create my first game!](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
-
 **NOTE**: *This software is on stage development.*
 
 ### Features
@@ -29,6 +27,18 @@ Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for eas
 - Monitoring users playing game
 - Easy Game-editor (JSON files)
 - Translate to other languages (language.json)
+
+### Requeriments
+
+- Apache Web server
+- PHP 5.3 or later
+
+### Installation
+
+- Clone repo (or unzip) on your webserver
+- Go your website
+- [How create my first game!](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
+- Enjoy!
 
 ### Developer
 
