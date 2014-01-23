@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "hospitaloutside",
+    "image": "hospitaloutside.jpg",
+    "description": "Una gran edificación se eleva desde el suelo. Se trata del edificio principal de lo que parece el hospital del lugar. El local principal parece estar cerrado, aunque al sur se puede acceder a una pequeña zona que permanece abierta. Varios matojos y arbustos pueblan la zona."
+  },
+  "data": {
+    "exits": {
+      "norte": "oldtown",
+      "sur": {
+        "required": "llave",
+        "excuse": "Las puertas están cerradas con llave, no puedo abrirlas.",
+        "target": "hospitalcorridor"
+      },
+      "este": "streetold"
+    }
+  },
+  "synonyms": {
+    "descampado": ["hospital"],
+    "edificacion": ["edificio", "edificios", "local", "edificio principal"],
+    "suelo": ["abajo", "piso"],
+    "matojos": ["arbustos", "matojo", "arbusto", "vegetacion"],
+    "hierba": ["hierbas"],
+    "ventana": ["ventanas", "balcones", "balcon"],
+    "pared": ["paredes"],
+    "hoja": ["noticia"]
+  },
+  "mirar": {
+    "descampado": "Un árido descampado que parece pertenecer a las inmediaciones del hospital. La vegetación crece por estas zonas e incluso se adhiere a la pared del hospital.",
+    "edificacion": "El edificio es alto y parece antiguo. No obstante, y como otras partes del pueblo, parece no coincidir con la época.",
+    "suelo": {
+      "required": "nota",
+      "message": "El suelo está lleno de arbustos y matojos.",
+      "excuse": "El suelo está lleno de arbustos y matojos. Aquí hay una pequeña nota."
+    },
+    "matojos": "Grandes extensiones de hierbas, probablemente de crecimiento acelerado debido a las lluvias.",
+    "hierba": "No... No es de ese tipo...",
+    "ventana": "Varias ventanas y balcones, idénticas entre sí, se apilan una consecutiva a la otra...",
+    "pared": "La pared tiene una hoja pegada. Es una noticia sobre un accidente.",
+    "hoja": {
+      "message": "Accidente en el bosque de Innocent Hill y unas imagenes. Falta el resto de la noticia, sólo veo el titular y poco más...",
+      "setAction": "notaLeida",
+      "inc": "score@5"
+    }
+  },
+  "coger": {
+    "nota": {
+      "message": "He recogido la pequeña nota. Parece un pedazo recortado de la prensa.",
+      "inc": "score@5"
+    }
+  }
+}

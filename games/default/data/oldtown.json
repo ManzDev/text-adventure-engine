@@ -1,0 +1,32 @@
+{
+  "info": {
+    "name": "oldtown",
+    "image": "oldtown.jpg",
+    "description": "Estás en un descampado. Reina la tranquilidad y un ambiente lúgubre y desolado. El frio acecha en los rincones del lugar, mostrando un panorama inquietante. Al oeste se va hacia al bosque."
+  },
+  "data": {
+    "exits": {
+      "sur": "hospitaloutside",
+      "oeste": {
+        "required": "informaciónBosque",
+        "excuse": "Me pierdo con facilidad en los bosques, mejor no adentrarme hasta saber a donde ir...",
+        "target": "bosque"
+      }
+    }
+  },
+  "synonyms": {
+    "descampado": ["campo"],
+    "casa": ["casas", "edificio", "edificios"],
+    "coche": ["coches"],
+    "luz": ["luces"]
+  },
+  "mirar": {
+    "descampado": "Un lugar ampliamente deshabitado. A lo lejos puedes ver varios coches y alguna casa con las luces encendidas, sin embargo, por esta zona, la actividad es nula.",
+    "casa": "Construcciones normales... Nada demasiado destacable. Parecen estar en un punto medio entre la construcción de ciudad tradicional y las casas de pueblo.",
+    "coche": "Veo varios vehículos aparcados a lo lejos, cerca de las casas. Supongo que serán de sus habitantes. No veo a nadie dentro.",
+    "lejos": "¿Tan lejos? No alcanzo a ver...",
+    "luz": "Pocas, pero alguna casa tiene luz encendida.",
+    "actividad": "Pues eso, nula.",
+    "ruedas": "Marca ACME... Tengo buena vista, ¿verdad?"
+  }
+}

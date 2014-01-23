@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "tavern",
+    "image": "tavern.jpg",
+    "description": "Estás en el interior de la taberna La mansión de Caloire. La madera predomina en el lugar. El ambiente es muy cálido. Sin embargo, está completamente vacío. Las sillas se mantienen ordenadas en sus respectivos sitios, sin embargo, el lugar no parece hacer justicia a su entorno. Varias estanterías repletas de bebidas a lo largo de la barra."
+  },
+  "data": {
+    "exits": {
+      "norte": "streetold"
+    }
+  },
+  "synonyms": {
+    "suelo": "abajo",
+    "sillas": "silla",
+    "estanterias": "estanteria",
+    "bebidas": ["botellas", "bebida", "vino", "whiskey", "whiski", "whisky", "botella"],
+    "lamparas": "lampara",
+    "tablones": ["tablon", "tablones madera", "tablon madera"],
+    "cenicero": ["ceniceros"],
+    "caja": "caja registradora"
+  },
+  "mirar": {
+    "taberna": "Lo cierto es que es un lugar agradable. Por primera vez me siento más descansado en este pueblo.",
+    "suelo": "El piso está hecho de tablones de madera.",
+    "madera": "Materia prima de este lugar.",
+    "sillas": "Varias sillas acompañan a cada mesa que existe repartida por la taberna.",
+    "mesa": "Las mesas están completamente despejadas. La madera brilla.",
+    "barra": {
+      "required": "tarjeta",
+      "message": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos.",
+      "excuse": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos. Aquí hay una tarjeta."
+    },
+    "estanterias": "Hay varias bebidas en la estantería... Al parecer la que más se consume es el grog.",
+    "bebidas": "Vino, Whiskey y Grog.",
+    "lamparas":"Emiten la suficiente luz para iluminar la taberna.",
+    "tablones": "Tablones de madera. En buen estado.",
+    "cenicero": "Limpios, sin una colilla... Junto a uno de ellos hay un panfleto.",
+    "grog": {
+      "message": "Jou Jou Jou... Y una botella de Grog...", 
+      "setAction": "grogVisto",
+      "inc": "score@5"
+    },
+    "caja": "Hay un billete... Pero es del Monopoly...",
+    "panfleto": "El panfleto dice: Reena Laux, periodista."    
+  },
+  "coger": {
+    "tarjeta": "Has cogido la tarjeta."
+  }
+}

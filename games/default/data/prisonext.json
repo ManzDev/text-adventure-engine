@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "prisonext",
+    "image": "prisonext.jpg",
+    "description": "Estás en la parte trasera de un gran castillo. Varias puertas gigantes y reforzadas impiden la entrada al recinto. Los muros, también muy sólidos se mantienen firmes ante tu presencia. Algunos escombros de muros independientes al castillo están derruidos por un lado."
+  },
+  "data": {
+    "exits": {
+      "oeste": "streetold"
+    }
+  },
+  "synonyms": {
+    "parte trasera": ["parte trasera castillo"],
+    "suelo": "abajo",
+    "puertas": ["puerta", "puertas gigantes", "puerta gigante", "entrada"],
+    "muro": ["muros"],
+    "escombro": ["escombros"],
+    "restos": ["piedra", "piedras", "rocas", "bloques", "bloque"]
+  },
+  "mirar": {
+    "parte trasera": "Algunos fragmentos de un muro independiente al castillo descansan a lo lejos. El castillo sin embargo, parece sólido.",
+    "suelo": "Hay una zona, pegada al muro en la que la tierra parece blanda.",
+    "puertas": "Las puertas son grandes y sólidas. Imposibles de abrir o derribar sin sus llaves.",
+    "muro": "Los muros caídos se extienden a lo lejos en un montón de escombros. De poca importancia tuvo que ser el muro, ya que no parece del mismo material que el castillo.",
+    "escombro": "Los escombros formados de bloque y restos de piedra.",
+    "castillo": "El castillo impresiona, aunque quizás desde otro lugar se pueda ver mejor y entrar a él.",
+    "tierra": "La tierra parece bastante blanda. Si le echo algo de agua será más manipulable...",
+    "restos": "Trozos de piedra inservible. Una buena limpieza haría falta por aquí... Lástima que no me traje la escoba...",
+    "escoba": "He dicho que no me traje la escoba... ¿A qué te pongo a barrer a ti?"
+  }
+}
