@@ -4,10 +4,10 @@
 
 Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for easy-create (without developer knowledge) classic interactive text adventures with support for simultaneous players and realtime chat.
 
-Based on Innocent Hill 28-december [Emezeta blog](http://www.emezeta.com/) adventures:
-- [La historia de Innocent Hill](http://www.emezeta.com/articulos/la-historia-de-innocent-hill)
-- [La historia de Innocent Hill 2](http://www.emezeta.com/articulos/la-historia-de-innocent-hill-2)
+Based on Innocent Hill 28-december **Emezeta blog** adventures:
 - [La historia de Innocent Hill 3](http://www.emezeta.com/articulos/la-historia-de-innocent-hill-2011)
+- [La historia de Innocent Hill 2](http://www.emezeta.com/articulos/la-historia-de-innocent-hill-2)
+- [La historia de Innocent Hill](http://www.emezeta.com/articulos/la-historia-de-innocent-hill)
 
 **NOTE**: *This software is on stage development.*
 
