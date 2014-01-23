@@ -1,12 +1,10 @@
 ![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/game.png)
 
-Text-adventure-engine
-=====================
+# Text Adventure Engine
 
-Text-adventure-engine (also IHEngine) is a simple web engine for easy-create classic interactive text adventures with chat-logging multiplayer support.
+Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for easy-create classic interactive text adventures with chat-logging multiplayer support.
 
-Features
-========
+### Features
 
 - Easy-create classic adventures for non-developer users (only editing json files)
 - Simple control for move player (north, south, east, west) around map game
