@@ -42,12 +42,14 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 
 - Clone repo (or unzip) on your webserver
 - Go your website and enjoy!
+
 More info on [How play?](https://github.com/ManzDev/text-adventure-engine/wiki/How-play-game)
 
 ### Create my own games
 
 - This engine come with a little example (games/default folder)
-- Learn: [How create my first game](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game), rooms 
+- Learn: [How create my first game](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game), rooms
+ 
 More info on [wiki](https://github.com/ManzDev/text-adventure-engine/wiki)
 
 ### Developer
