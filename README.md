@@ -2,7 +2,9 @@
 
 # Text Adventure Engine
 
-Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for easy-create classic interactive text adventures with chat-logging multiplayer support.
+Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for easy-create (without developer knowledge) classic interactive text adventures with support for simultaneous players and realtime chat.
+
+[How create my first game!](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
 
 **NOTE**: *This software is on stage development.*
 
@@ -22,7 +24,7 @@ Text-adventure-engine (also Innocent Hill Engine) is a simple web engine for eas
 
 - Support for conversation like SCUMM-games
 - Full-Support for inventory
-- Better coding (POO Maybe?)
+- Better coding (More POO -maybe?- and less spaguetti)
 - Control panel for install games
 - Monitoring users playing game
 - Easy Game-editor (JSON files)
