@@ -319,7 +319,6 @@
     return (property_exists($obj, 'excuse') ? $obj->excuse : "FAIL");
   }
 
-  /*
   // PTE: Soporte de conversación al estilo Aventura gráfica
   function conversation($char) {
 
@@ -339,6 +338,5 @@
     
     return $talk;
   }
-  */
 
 ?>

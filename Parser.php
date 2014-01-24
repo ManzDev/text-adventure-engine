@@ -68,7 +68,12 @@
       if (in_array($words[0], _('TAKE_SYN'))) {
         $words[0] = _('TAKE_VERB');
         $data = implode(' ', $words);
-      }      
+      }
+
+      if (in_array($words[0], _('TALK_SYN'))) {
+        $words[0] = _('TALK_VERB');
+        $data = implode(' ', $words);
+      }
 
     }
 
