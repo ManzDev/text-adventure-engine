@@ -39,5 +39,21 @@
       "inc": "score@5"
     },
     "ventanas": "Ventanas cerradas. Como cuando en el oeste llega el temible forajido y todos es esconden... No veo a nadie..."    
+  },
+  "hablar": {
+    "anciano": {
+      "0": {
+        "message": "¡Hola, venerable anciano! ¿Qué se trae por aquí?",
+        "response": "Cogito ergo sum."
+      },
+      "1": {
+        "message": "¿Dónde está todo el mundo?",
+        "response": "No tengo ni idea"
+      },
+      "2": {
+        "message": "Me llamo Guybrush Threepwood y quiero ser pira... erm... ¿Me está escuchando?",
+        "response": "No estoy para perder el tiempo, joven..."
+      }
+    }
   }
 }
