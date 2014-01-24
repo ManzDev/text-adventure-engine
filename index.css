@@ -26,10 +26,15 @@ body {
 
 /* Zona de la imagen */
 #img {
-	transition:all ease-in-out 0.2s;
-  border:10px solid #FFF;
+  width:inherit;
 }
-	#img:hover {
+#img img {
+  transition:all ease-in-out 0.2s;
+  border:10px solid #FFF;
+  width:inherit;
+  max-height:400px; 
+}
+	#img img:hover {
     transition:all ease-in-out 0.6s;    
 		box-shadow:2px 2px 15px #000;
 		opacity:0.9;
@@ -42,7 +47,6 @@ body {
 
 /* Zona de escritura */
 #input {
-	background:#111;
 	border:2px solid #222;
 	width:100%;
 	outline:none;
@@ -51,11 +55,11 @@ body {
   font-size:16px;
 	padding:6px;
 	height:22px;
-	border-radius:10px;    
+  background:#222;
 }
 
 	#input:hover {
-  		background:#222;
+  		border-color:#161616;
 	}
 
 #text, #chat {
