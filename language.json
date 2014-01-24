@@ -16,7 +16,7 @@
 	"EXIT_ONLY_ONE" : "Sólo hay una salida posible: ",
 	"EXIT_AVAILABLE" : "Las salidas posibles son ",
 
-	"WORDS_CONNECTORS" : [" hacia ", " la ", " el ", " a ", " para ", " lo ", 
+	"WORDS_CONNECTORS" : [" hacia ", " la ", " el ", " a ", " para ", " lo ", " con ",
 								" los ", " las ", " de ", " en ", " y ", " al ", 
 								" un ", " uno ", " una ", " mi ", " esa ", " aquella ", 
 								" aquel ", " esta ", " ahi ", " alla ", " hasta ", 
