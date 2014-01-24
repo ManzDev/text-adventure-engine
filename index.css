@@ -1,7 +1,18 @@
 body {
 	background:#111;
-	font-family:'Press Start 2P';
+	/*font-family:'Press Start 2P';*/
+  font-family: 'Volter (Goldfish)';
+  font-size:18px;
 	color:#FFF;
+}
+
+@font-face {
+  font-family:"Volter (Goldfish)";
+  src:url("ttf/volter.eot") format("eot"),
+      url("ttf/volter.woff") format("woff"),
+      url("ttf/volter.ttf") format("truetype");
+  font-weight:normal;
+  font-style:normal;
 }
 
 /* Molde de página central */
@@ -15,14 +26,18 @@ body {
 
 /* Zona de la imagen */
 #img {
-	border:3px solid #FFF;
 	transition:all ease-in-out 0.2s;
+  border:10px solid #FFF;
 }
 	#img:hover {
-		transition:all ease-in-out 0.2s;
+    transition:all ease-in-out 0.6s;    
 		box-shadow:2px 2px 15px #000;
 		opacity:0.9;
-		border-color:#444;
+		border:10px solid #000;
+    transform: rotate(0.6deg);
+    -webkit-transform: rotate(0.6deg);
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 	}
 
 /* Zona de escritura */
@@ -33,7 +48,7 @@ body {
 	outline:none;
 	color:#00FFFF;
 	font-family:'Press Start 2P';
-	font-size:16px;
+  font-size:16px;
 	padding:6px;
 	height:22px;
 	border-radius:10px;    
@@ -59,6 +74,29 @@ body {
     -ms-transition: background-color .75s ease-out;
     transition: background-color .75s ease-out;
 }
+#help {
+  font-size:22px;
+  margin-top:0.4em;
+}
+  #help > a {  
+    color:#FFF;
+    float:right;
+  }
+  #help a {
+    text-decoration:none;    
+    cursor:pointer;
+  }
+.help {
+  font-size:18px;
+  color:#111;
+  background:#DDD;
+  position:relative;
+  float:right;
+  padding:0.8em;
+  margin:0.6em;
+  border-radius:10px;
+}
+.help a { color:#0044FF!important; }
 
 /* New User */
 
