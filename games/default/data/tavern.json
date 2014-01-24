@@ -37,7 +37,7 @@
     "cenicero": "Limpios, sin una colilla... Junto a uno de ellos hay un panfleto.",
     "grog": {
       "message": "Jou Jou Jou... Y una botella de Grog...", 
-      "setAction": "grogVisto",
+      "setAction": "grog_seen",
       "inc": "score@5"
     },
     "caja": "Hay un billete... Pero es del Monopoly...",

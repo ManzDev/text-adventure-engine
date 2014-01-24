@@ -39,7 +39,7 @@
     "pared": "La pared tiene una hoja pegada. Es una noticia sobre un accidente.",
     "hoja": {
       "message": "Accidente en el bosque de Innocent Hill y unas imagenes. Falta el resto de la noticia, sólo veo el titular y poco más...",
-      "setAction": "notaLeida",
+      "setAction": "nota_seen",
       "inc": "score@5"
     }
   },
