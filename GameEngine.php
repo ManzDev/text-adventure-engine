@@ -134,8 +134,8 @@
     save(USERFILE, 'info', 'room', $room);
 
     // check visited (and mark)
-    if (!load(USERFILE, 'visited', $room))
-      save(USERFILE, 'visited', $room, "1");
+    if (!load(USERFILE, 'actions', $room . '_visited'))
+      save(USERFILE, 'actions', $room . '_visited', "1");
 
     // check possible ends
     $ends = load(ROOMDIR . $room . '.json', 'data', 'ends');
