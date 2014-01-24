@@ -12,6 +12,20 @@ $( document ).ready(function() {
 	$('#chat').load('/action/?chat=1');
 	$('#input').focus();
 
+	lang = (function() {
+		var json = null;
+		$.ajax({
+			'async': false,
+			'global': false,
+			'url': 'language.json',
+			'dataType': 'json',
+			'success': function (data) {
+				json = data;
+			}
+		});
+		return json;
+	})();
+
 });
 
 function doInfo() {
@@ -24,10 +38,15 @@ function doInfo() {
 
 	$('#text').text(obj.data.description);
 	if (obj.data.image != undefined)
-		$('#img').attr('src', obj.data.image);
+		$('#img img').attr('src', obj.data.image);
 	$('#chat').load('/action/?chat=1');
 	if (obj.data.music != undefined)
 		music = new Audio(obj.data.music).play();
+}
+
+function show_help() {
+	$('#help div.help').text(lang['HELP_FIRST_TIP']);
+	$('#help div.help').toggle();
 }
 
 function doIt(data) {
@@ -64,7 +83,7 @@ function show_end(obj) {
 
 function doAction(s) {
 
-	$.getJSON("language.json", function(lang) {
+	//$.getJSON("language.json", function(lang) {
 
 		// fast cleanner (supertrim & minus)
 		s = s.replace(/\s+/g, ' ').toLowerCase().trim();
@@ -190,6 +209,6 @@ function doAction(s) {
 	 	$('#input').val('');
 	 	$('#input').focus();
 
-	});
+	//});
 
 }
