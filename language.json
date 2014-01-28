@@ -25,13 +25,16 @@
 	"WORDS_END" : "FIN",
 
 	"LOOK_VERB" : "mirar",
-	"TAKE_VERB" : "coger",		
+	"LOOK_SHORT": "m",
+	"TAKE_VERB" : "coger",
+	"DROP_VERB" : "dejar",
 	"EXIT_VERB" : "salidas",
 	"EXIT_SHORT" : "x",
 	"TALK_VERB" : "hablar",			
 
 	"GOTO_SYN" : ["ir", "andar", "caminar"],
 	"LOOK_SYN" : ["examinar", "observar"],
+	"DROP_SYN" : ["soltar", "abandonar"],
 	"TAKE_SYN" : ["agarrar", "tomar", "sujetar", "obtener"],
 	"TALK_SYN" : ["conversar", "dialogar", "decir"],
 
@@ -40,6 +43,10 @@
 	"INVENTORY_ITEM_ALREADY" : "Ya lo tengo.",
 	"INVENTORY_EMPTY" : "No llevo nada encima.",
 	"INVENTORY_LIST" : "Tengo los siguientes objetos en mi inventario: ",
+
+	"DROP_ITEM" : "He dejado ese objeto aquí.",
+	"DROP_CANT" : "No puedo dejar algo que no tengo",
+	"TAKE_AGAIN" : "Listo. Ya lo tengo de nuevo en mi poder.",
 
 	"LOOK_EXCUSES" : ["¿Qué mire el qué?", 
 					 "No veo nada aquí, ni en mi inventario, parecido a eso.", 
@@ -50,9 +57,9 @@
 	"TAKE_EXCUSES" : ["¿Que coja el qué? No veo como me podría ayudar eso.", 
 					 "Mejor no.", 
 					 "Olvídalo.",
-					 "No entiendo a qué te refieres...",
-					 "No me parece buena idea.",
-					 "No me llevaré eso a ninguna parte."],
+					 "No sé a qué cosa te refieres...",
+					 "No veo eso que dices.",
+					 "¿Qué? No me llevaré eso a ninguna parte."],
 
 	"GOTO_EXCUSES" : ["No puedo ir en esa dirección.", 
 					 "No hay ninguna salida hacia allá.", 
@@ -70,6 +77,7 @@
 	"NONICK_EXIST" : "No puedo ponerme un nuevo nombre, ya tengo uno.",
 	"NONICK_ERROR" : "No se puede utilizar ese nick.",
 	"NONICK_EMPTY" : "Escribe un nick o apodo para tu jugador",
+	"NONICK_OK" : "¡OK! ¡Ya tengo una identidad! ¿Empezamos?",
 
 	"END_ADVENTURE" : "¡Has terminado la aventura!",
 
