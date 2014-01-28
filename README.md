@@ -24,7 +24,7 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 - Support for multilanguage
 - Full-Support for inventory
 
-![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/text-adventure.gif)
+![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/items.gif)
 
 ### To-do (planned)
 
