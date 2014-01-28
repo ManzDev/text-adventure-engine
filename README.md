@@ -22,16 +22,20 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 - Allow simple chat-logging multiplayer on separated rooms
 - Allow multiple game endings
 - Support for multilanguage
+- Full-Support for inventory
+
+![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/text-adventure.gif)
 
 ### To-do (planned)
 
-- Support for conversation like SCUMM-games
-- Full-Support for inventory
-- Better coding (More POO -maybe?- and less spaguetti)
+- Better coding (More POO and less spaguetti)
 - Control panel for install games
 - Monitoring users playing game
 - Easy Game-editor (JSON files)
 - Translate to other languages (language.json)
+- Support for conversation like SCUMM-games
+
+![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/talking.gif)
 
 ### Requeriments
 
