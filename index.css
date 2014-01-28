@@ -10,6 +10,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  border:0;
+  padding:0;
+  margin:0;
 }
 
 @font-face {
@@ -72,6 +75,20 @@ body {
   margin:2em 0 2em 0;
   text-align:left;
 }
+  #pretext {
+    color:#7777CC;
+    text-align:right;
+    padding-top:5px;
+  }
+    #pretext span {
+      color:#4499CC;
+      margin-left:2em;
+      overflow:auto;
+    }
+    #pretext span:hover {
+      color:#66BBEE;
+      cursor:crosshair;
+    }  
 
 #chat {
   color:#880088;
@@ -254,3 +271,21 @@ body {
 .endletter strong {
   margin-top:3em;
 }
+
+/* Franja items */
+
+#item {
+    position:absolute;
+    width:97%;
+    top:20%;
+    text-align:center;
+    box-shadow:5px 5px 15px #111;
+    z-index: 5;
+    background: #000;
+    border: 20px solid #000;    
+}
+  #item span { 
+    display: block;
+    max-width: 600px;
+    margin:auto;    
+  }
