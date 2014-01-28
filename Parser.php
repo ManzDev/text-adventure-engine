@@ -31,6 +31,11 @@
     $words = explode(' ', $data);
     $num = count($words);
 
+    if ($words[0] == _('LOOK_SHORT')) {
+      $words[0] = _('LOOK_VERB');
+      $data = implode(' ', $words);
+    }
+
     // Traduce abreviaturas unitarias (n, s, e, o, i, x)
     if ($num == 1) {
       switch ($data) {
@@ -74,7 +79,6 @@
         $words[0] = _('TALK_VERB');
         $data = implode(' ', $words);
       }
-
     }
 
     return $data;
