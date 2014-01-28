@@ -10,10 +10,11 @@
 		$g = func_get_args();
 
 		$content = file_get_contents($g[0]);
+		file_put_contents("driver_debug.txt", date("H:i:s") . '- Loading ' . $g[0] . "...\r\n", FILE_APPEND);
 		if (SECURE_JSON)
 			$content = strip_tags($content);
 		$data = json_decode($content);
-		for ($i = 1; $i < $n; $i++) 
+		for ($i = 1; $i < $n; $i++)
 			if (property_exists($data, $g[$i]))
 				$data = $data->{$g[$i]};
 			else
@@ -30,6 +31,7 @@
 		$g = func_get_args();
 
 		$data = json_decode(file_get_contents($g[0]));
+		file_put_contents("driver_debug.txt", date("H:i:s") . '- Saving ' . $g[0] . "...\r\n", FILE_APPEND);
 
 		if (!array_key_exists($g[1], $data))
 			$data->{$g[1]} = new StdClass();
