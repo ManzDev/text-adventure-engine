@@ -13,6 +13,7 @@
   },
   "synonyms": {
     "casas": ["casas antiguas", "casa"],
+    "suelo": "abajo",
     "pared": "paredes",
     "puertas": "puerta",
     "macetas": "maceta",
@@ -43,16 +44,16 @@
   "hablar": {
     "anciano": {
       "0": {
-        "message": "¡Hola, venerable anciano! ¿Qué se trae por aquí?",
-        "response": "Cogito ergo sum."
+        "m": "¡Hola, venerable anciano! ¿Qué se trae por aquí?",
+        "r": "Cogito ergo sum."
       },
       "1": {
-        "message": "¿Dónde está todo el mundo?",
-        "response": "No tengo ni idea"
+        "m": "¿Dónde está todo el mundo?",
+        "r": "No tengo ni idea"
       },
       "2": {
-        "message": "Me llamo Guybrush Threepwood y quiero ser pira... erm... ¿Me está escuchando?",
-        "response": "No estoy para perder el tiempo, joven..."
+        "m": "Me llamo Guybrush Threepwood y quiero ser pira... erm... ¿Me está escuchando?",
+        "r": "No estoy para perder el tiempo, joven..."
       }
     }
   }

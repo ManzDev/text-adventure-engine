@@ -26,7 +26,7 @@
     "sillas": "Varias sillas acompañan a cada mesa que existe repartida por la taberna.",
     "mesa": "Las mesas están completamente despejadas. La madera brilla.",
     "barra": {
-      "required": "tarjeta",
+      "required": "+llave",
       "message": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos.",
       "excuse": "La barra permanece limpia de objetos. Solo algunos ceniceros descansan por ciertos extremos. Aquí hay una llave."
     },
@@ -42,8 +42,5 @@
     },
     "caja": "Hay un billete... Pero es del Monopoly...",
     "panfleto": "El panfleto dice: Reena Laux, periodista."    
-  },
-  "coger": {
-    "llave": "Has cogido la llave."
   }
 }

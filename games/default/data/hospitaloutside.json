@@ -29,7 +29,7 @@
     "descampado": "Un árido descampado que parece pertenecer a las inmediaciones del hospital. La vegetación crece por estas zonas e incluso se adhiere a la pared del hospital.",
     "edificacion": "El edificio es alto y parece antiguo. No obstante, y como otras partes del pueblo, parece no coincidir con la época.",
     "suelo": {
-      "required": "nota",
+      "required": "+nota",
       "message": "El suelo está lleno de arbustos y matojos.",
       "excuse": "El suelo está lleno de arbustos y matojos. Aquí hay una pequeña nota."
     },
@@ -40,12 +40,6 @@
     "hoja": {
       "message": "Accidente en el bosque de Innocent Hill y unas imagenes. Falta el resto de la noticia, sólo veo el titular y poco más...",
       "setAction": "nota_seen",
-      "inc": "score@5"
-    }
-  },
-  "coger": {
-    "nota": {
-      "message": "He recogido la pequeña nota. Parece un pedazo recortado de la prensa.",
       "inc": "score@5"
     }
   }

@@ -1,0 +1,15 @@
+{
+  "nota": {
+    "room": "hospitaloutside",
+    "look": "uno",
+    "image": "dos",
+    "message": "He recogido la pequeña nota. Parece un pedazo recortado de la prensa.",
+    "inc": "score@5"
+  },
+  "llave": {
+    "room": "tavern",
+    "image": "llave.jpg",
+    "look": "Una pequeña llave roja.",
+    "message": "Has cogido la llave."
+  }
+}
