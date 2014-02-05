@@ -29,11 +29,13 @@
 
 	$datauser = (object)load(USERFILE, 'info');
 	define('CURRENT_ROOM', $datauser->room);
-
-	if (isset($datauser->name))
-		define('USERNAME', $datauser->name);
-
 	define('ROOMFILE', ROOMDIR . CURRENT_ROOM .'.json');
+
+	if (isset($datauser->name)) {
+		define('USERNAME', $datauser->name);
+		$nickname = new Nickname();
+		$nickname->checkCookie();
+	}
 
 	if (isset($datauser->end)) {
 		$response = new StdClass();
