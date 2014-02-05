@@ -44,16 +44,25 @@
   "hablar": {
     "anciano": {
       "0": {
-        "m": "¡Hola, venerable anciano! ¿Qué se trae por aquí?",
-        "r": "Cogito ergo sum."
+        "conversation" : [{
+          "m": "¡Hola, venerable anciano! ¿Qué se trae por aquí?",
+          "r": "Cogito ergo sum."},{
+          "m": "¿Cómo?",
+          "r": "Nada, nada..."}
+      ],
+        "child": "soon..."
       },
       "1": {
-        "m": "¿Dónde está todo el mundo?",
-        "r": "No tengo ni idea"
+        "conversation" : [{
+          "m": "¿Dónde está todo el mundo?",
+          "r": "No tengo ni idea"
+      }]
       },
       "2": {
-        "m": "Me llamo Guybrush Threepwood y quiero ser pira... erm... ¿Me está escuchando?",
-        "r": "No estoy para perder el tiempo, joven..."
+        "conversation" : [{
+          "m": "Me llamo Guybrush Threepwood y quiero ser pira... erm... ¿Me está escuchando?",
+          "r": "No estoy para perder el tiempo, joven..."
+        }]
       }
     }
   }
