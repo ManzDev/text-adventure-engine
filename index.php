@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
  <link href='http://fonts.googleapis.com/css?family=Open+Sans:200,400|Raleway:400|Press+Start+2P:400' rel='stylesheet' type='text/css'>
- <link type="text/css" rel="stylesheet" href="index.css" /> 
+ <link type="text/css" rel="stylesheet" href="index.css" />
+ <link rel="shortcut icon" href="favicon.ico" />
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>Innocent Engine</title>
  </head>
