@@ -13,7 +13,7 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 
 ### Features
 
-- Easy-create classic adventures for non-developer users (only editing json files)
+- Easy-create classic adventures for non-developer users (only editing JSON files)
 - Flat-file system for dummies (no need database, drivers and others)
 - Simple control for move player (north, south, east, west...) around map game
 - Simple control for look and take items
@@ -22,7 +22,7 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 - Allow simple chat-logging multiplayer on separated rooms
 - Allow multiple game endings
 - Support for multilanguage
-- Full-Support for inventory
+- Full-Support for inventory (take & drop items)
 
 ![Screenshot](https://raw.github.com/ManzDev/text-adventure-engine/master/docs/items.gif)
 
@@ -31,7 +31,7 @@ Based on Innocent Hill 28-december **Emezeta blog** adventures:
 - Better coding (More POO and less spaguetti)
 - Control panel for install games
 - Monitoring users playing game
-- Easy Game-editor (JSON files)
+- Easy Game-editor. Meanwhile, you can use a [JSONEditor](https://github.com/josdejong/jsoneditor/)
 - Translate to other languages (language.json)
 - Support for conversation like SCUMM-games
 
@@ -52,9 +52,14 @@ More info on [How play?](https://github.com/ManzDev/text-adventure-engine/wiki/H
 ### Create my own games
 
 - This engine come with a little example (games/default folder)
-- Learn: [How create my first game](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game), rooms
+- Learn: [How create my first game](https://github.com/ManzDev/text-adventure-engine/wiki/Create-my-first-game)
  
 More info on [wiki](https://github.com/ManzDev/text-adventure-engine/wiki)
+
+### Bug report and requests
+
+- [Issues](https://github.com/ManzDev/text-adventure-engine/issues)
+- Contact for email with subject "Innocent Hill Engine"
 
 ### Developer
 
