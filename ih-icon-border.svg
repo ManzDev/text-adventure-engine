@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="ih-icon.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="275.93457"
+     inkscape:cy="250.41483"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1209"
+     inkscape:window-height="865"
+     inkscape:window-x="109"
+     inkscape:window-y="189"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-540.36218)">
+    <g
+       id="g3796"
+       transform="translate(2,0)">
+      <rect
+         y="541.36121"
+         x="-0.00097323069"
+         height="510.00195"
+         width="511.00195"
+         id="rect2985"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.99805355;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:1.42350745;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect2987"
+         width="511.57651"
+         height="258.57651"
+         x="-0.28824627"
+         y="541.07391" />
+    </g>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 192,670.36218 0,256 63,0 0,-96.5 65,0 0,96.5 63,0 0,-256 -63,0 0,96.5 -65,0 0,-96.5 -63,0 z"
+       id="rect3868"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3757"
+       width="63.008629"
+       height="384.00864"
+       x="63.995682"
+       y="606.35785" />
+    <path
+       style="fill:#0ba100;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 159 66 L 159 97 L 416 97 L 416 418 L 159 418 L 159 450 L 444 450 L 447 450 L 447 66 L 441 66 L 416 66 L 159 66 z "
+       transform="translate(0,540.36218)"
+       id="rect3759" />
+    <a
+       id="a3828"
+       transform="translate(-520,0)">
+      <g
+         id="g3822">
+        <g
+           id="g3809"
+           style="stroke:none">
+          <rect
+             style="fill:#ffffff;fill-opacity:1;stroke:none"
+             id="rect3769"
+             width="63.008629"
+             height="256.00864"
+             x="191.99567"
+             y="670.35785" />
+          <rect
+             transform="matrix(0,-1,1,0,0,0)"
+             style="fill:#ffffff;fill-opacity:1;stroke:none"
+             id="rect3773"
+             width="63.008629"
+             height="166.00864"
+             x="-829.86646"
+             y="207.49567" />
+          <rect
+             y="670.35785"
+             x="319.99567"
+             height="256.00864"
+             width="63.008629"
+             id="rect3807"
+             style="fill:#ffffff;fill-opacity:1;stroke:none" />
+        </g>
+      </g>
+    </a>
+    <a
+       id="a3835"
+       transform="translate(380,40)"
+       style="fill:#44a100;fill-opacity:1;stroke:none">
+      <g
+         id="g3837"
+         style="fill:#44a100;fill-opacity:1;stroke:none">
+        <g
+           style="fill:#44a100;fill-opacity:1;stroke:none"
+           id="g3839" />
+      </g>
+    </a>
+  </g>
+</svg>

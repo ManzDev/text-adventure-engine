@@ -59,7 +59,7 @@ More info on [wiki](https://github.com/ManzDev/text-adventure-engine/wiki)
 ### Bug report and requests
 
 - [Issues](https://github.com/ManzDev/text-adventure-engine/issues)
-- Contact for email with subject "Innocent Hill Engine"
+- Contact for email (manz+github at emezeta.com) with subject "Innocent Hill Engine"
 
 ### Developer
 
