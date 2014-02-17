@@ -63,7 +63,7 @@
 
 				// Ya lo tengo
 				if ($objinv == "1")
-					return array("coger", _('INVENTORY_ITEM_ALREADY'));      
+					return array("coger", __('INVENTORY_ITEM_ALREADY'));      
 
 				// ** Complex format
 				// No hay restricciones

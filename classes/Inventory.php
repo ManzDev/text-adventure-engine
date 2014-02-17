@@ -13,7 +13,7 @@
   		// Get only items on inventory (=1)
   		$itemlist = array_keys($this->items, "1");
     	$num = count($itemlist);
-    	return array('inventario', ($num == 0 ? _('INVENTORY_EMPTY') : _('INVENTORY_LIST') . enumerate($itemlist) . '.'));
+    	return array('inventario', ($num == 0 ? __('INVENTORY_EMPTY') : __('INVENTORY_LIST') . enumerate($itemlist) . '.'));
   	}
 
   	// Look a item on inventory or user-dropable item on rooms

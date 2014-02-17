@@ -21,7 +21,7 @@
     $data = str_replace(array('?', '¿', '¡', '!', ',', '.', '|', '\\', '/', ';', ':'), '', $data);
 
     // Eliminar palabras superfluas usadas de conectores (artículos o preposiciones)
-    $words = _('WORDS_CONNECTORS');
+    $words = __('WORDS_CONNECTORS');
     $data = str_replace($words, ' ', $data);
 
     // Elimina espacios sobrantes
@@ -31,52 +31,52 @@
     $words = explode(' ', $data);
     $num = count($words);
 
-    if ($words[0] == _('LOOK_SHORT')) {
-      $words[0] = _('LOOK_VERB');
+    if ($words[0] == __('LOOK_SHORT')) {
+      $words[0] = __('LOOK_VERB');
       $data = implode(' ', $words);
     }
 
     // Traduce abreviaturas unitarias (n, s, e, o, i, x)
     if ($num == 1) {
       switch ($data) {
-        case _('NORTH_SHORT'):
-          $data = _('NORTH_VERB');
+        case __('NORTH_SHORT'):
+          $data = __('NORTH_VERB');
           break;
-        case _('SOUTH_SHORT'):
-          $data = _('SOUTH_VERB');
+        case __('SOUTH_SHORT'):
+          $data = __('SOUTH_VERB');
           break;
-        case _('EAST_SHORT'):
-          $data = _('EAST_VERB');
+        case __('EAST_SHORT'):
+          $data = __('EAST_VERB');
           break;
-        case _('WEST_SHORT'):
-          $data = _('WEST_VERB');
+        case __('WEST_SHORT'):
+          $data = __('WEST_VERB');
           break;
-        case _('INVENTORY_SHORT'):
-          $data = _('INVENTORY_VERB');
+        case __('INVENTORY_SHORT'):
+          $data = __('INVENTORY_VERB');
           break;
-        case _('EXIT_SHORT'):
-          $data = _('EXIT_VERB');
+        case __('EXIT_SHORT'):
+          $data = __('EXIT_VERB');
           break;
       }
     }
 
     // Traduce dirección compuesta (ir al norte, andar hacia sur, caminar al este...)
     if ($num == 2) {
-      if (in_array($words[0], _('GOTO_SYN')))
+      if (in_array($words[0], __('GOTO_SYN')))
         $data = $words[1];
 
-      if (in_array($words[0], _('LOOK_SYN'))) {
-        $words[0] = _('LOOK_VERB');
+      if (in_array($words[0], __('LOOK_SYN'))) {
+        $words[0] = __('LOOK_VERB');
         $data = implode(' ', $words);
       }
 
-      if (in_array($words[0], _('TAKE_SYN'))) {
-        $words[0] = _('TAKE_VERB');
+      if (in_array($words[0], __('TAKE_SYN'))) {
+        $words[0] = __('TAKE_VERB');
         $data = implode(' ', $words);
       }
 
-      if (in_array($words[0], _('TALK_SYN'))) {
-        $words[0] = _('TALK_VERB');
+      if (in_array($words[0], __('TALK_SYN'))) {
+        $words[0] = __('TALK_VERB');
         $data = implode(' ', $words);
       }
     }

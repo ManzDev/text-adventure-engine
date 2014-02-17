@@ -61,7 +61,7 @@
 
 	  // list with 2 or more items
 	  if ($n > 1)
-	  	return implode(', ', array_slice($array, 0, $n -1)) . ' '._('WORDS_AND').' ' . $array[$n -1];
+	  	return implode(', ', array_slice($array, 0, $n -1)) . ' '.__('WORDS_AND').' ' . $array[$n -1];
 	    
 	  // list with 0 or 1 items
 	  return ($n === 0 ? $empty : $array[0] );	    

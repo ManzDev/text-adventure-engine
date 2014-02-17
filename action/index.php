@@ -65,38 +65,38 @@
 			$nickname = new Nickname();
 			list($response->action, $response->data) = $nickname->set($words);
 			break;
-		case _('EXIT_VERB'):
+		case __('EXIT_VERB'):
 			$exits = new Exits();
 			list($response->action, $response->data) = $exits->show();
 			break;
-		case _('NORTH_VERB'):
-		case _('SOUTH_VERB'):
-		case _('EAST_VERB'):
-		case _('WEST_VERB'):
-		case _('UP_VERB'):
-		case _('DOWN_VERB'):
-		case _('INSIDE_VERB'):
-		case _('OUTSIDE_VERB'):
+		case __('NORTH_VERB'):
+		case __('SOUTH_VERB'):
+		case __('EAST_VERB'):
+		case __('WEST_VERB'):
+		case __('UP_VERB'):
+		case __('DOWN_VERB'):
+		case __('INSIDE_VERB'):
+		case __('OUTSIDE_VERB'):
 			$exits = new Exits();
 			list($response->action, $response->data) = $exits->go_to($verb);
 			break;
-		case _('INVENTORY_VERB'):
+		case __('INVENTORY_VERB'):
 			$inventory = new Inventory();
 			list($response->action, $response->data) = $inventory->show();
 			break;
-		case _('LOOK_VERB'):
+		case __('LOOK_VERB'):
 			$room = new Room();
 			list($response->action, $response->data) = $room->look($words);
 			break;
-		case _('TAKE_VERB'):
+		case __('TAKE_VERB'):
 			$room = new Room();
 			list($response->action, $response->data) = $room->take($words);
 			break;
-		case _('TALK_VERB'):
+		case __('TALK_VERB'):
 			$talk = new Talk();
 			list($response->action, $response->data) = $talk->with($words);
 			break;
-		case _('DROP_VERB'):
+		case __('DROP_VERB'):
 			$inventory = new Inventory();
 			list($response->action, $response->data) = $inventory->drop($words);
 			break;

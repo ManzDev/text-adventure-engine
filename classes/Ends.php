@@ -42,14 +42,14 @@
 				$newend = new StdClass();	    
 
 				// Show text
-				$newend->text = (property_exists($v, 'text') ? $v->text : _('END_ADVENTURE'));
+				$newend->text = (property_exists($v, 'text') ? $v->text : __('END_ADVENTURE'));
 
 				// Show score
 				if (property_exists($v, 'showscore'))
 					$newend->score = load(USERFILE, 'vars', $v->showscore);
 
 				// Title of nice window
-				$newend->title = (property_exists($v, 'title') ? $v->title : _('WORDS_END'));
+				$newend->title = (property_exists($v, 'title') ? $v->title : __('WORDS_END'));
 
 				return array("end", $newend);
 			}

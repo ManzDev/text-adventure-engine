@@ -15,7 +15,7 @@
 		}
 
 		$item = new StdClass();
-		$item->m = _('TALK_STOP');
+		$item->m = __('TALK_STOP');
 		$item->v = "dark";
 		$talk->abort = $item;
 

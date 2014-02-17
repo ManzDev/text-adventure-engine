@@ -13,7 +13,7 @@
 		function show() {
 			$exits = array_keys((array)$this->exits);
 			$num = count($exits);
-			return array("salidas", ($num == 1 ? _('EXIT_ONLY_ONE') : _('EXIT_AVAILABLE')) . enumerate($exits) . '.');
+			return array("salidas", ($num == 1 ? __('EXIT_ONLY_ONE') : __('EXIT_AVAILABLE')) . enumerate($exits) . '.');
 		}
 
 		// Go to available exits (before, check it)
