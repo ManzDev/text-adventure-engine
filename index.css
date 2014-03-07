@@ -129,6 +129,7 @@
 		top:0;
 		background-position:0 0;
 		box-shadow:2px 2px 5px #111;
+		transition:all 0.4s ease;
 	}
 	.btn-green { 
 		background: linear-gradient(to bottom, #188a10, #0d6a05);
