@@ -1,0 +1,163 @@
+ 	body {
+ 		margin:0;
+ 	}
+	#top { 
+		background:#1F3263;
+		border-bottom:1px solid #5F6CCF;
+		height:50px;
+		font-family:'Source Sans Pro';
+		letter-spacing:0;
+		font-size:22px;
+		color:#EEE;
+	}
+	#top p { text-align:center; margin:0; padding:10px; color:#DDD; }
+	#top strong { color:#FFF; margin-right:0.5em; letter-spacing:-1px; }
+	
+	#page1 {
+		background-image: url(enter.png), linear-gradient(75deg, #266cad, #004B9E);
+		background-repeat: no-repeat, repeat;
+		background-position: top center, 0 0;
+		height:525px;
+		padding:3em;
+	}
+	#page2 {
+		background:linear-gradient(75deg, #111, #333);
+		min-height:575px;
+		padding:3em;
+	}
+
+	#page1 #logo {
+		width:400px;
+		margin:auto;
+	}
+
+	@-webkit-keyframes shadow {
+	  0% { opacity:0; background-position:110px 110px }
+	  45% { opacity:0.25; background-position:110px 110px }
+	  50% { opacity:1; background-position:125px 125px }
+	  55% { opacity:0.25; background-position:-425px -425px }
+	  100% { opacity:0; background-position:-425px -425px }
+	}
+
+	@-moz-keyframes shadow {
+	  0% { opacity:0; background-position:110px 110px }
+	  45% { opacity:0.25; background-position:110px 110px }
+	  50% { opacity:1; background-position:125px 125px }
+	  55% { opacity:0.25; background-position:-425px -425px }
+	  100% { opacity:0; background-position:-425px -425px }
+	}
+
+	@-ms-keyframes shadow {
+	  0% { opacity:0; background-position:110px 110px }
+	  45% { opacity:0.25; background-position:110px 110px }
+	  50% { opacity:1; background-position:125px 125px }
+	  55% { opacity:0.25; background-position:-425px -425px }
+	  100% { opacity:0; background-position:-425px -425px }
+	}
+
+	#logo img {
+		width:386px;
+		height:386px;
+		box-shadow:2px 2px 25px #000;
+		border:3px solid #000;
+		position:relative;
+		top:0;
+		left:0;
+		transition:all 1s;		
+	}
+	#logo img:hover {
+		box-shadow:4px 4px 45px #000;
+		transition:all 1s;
+	}
+	.title {
+		margin:auto;
+		width:600px;
+	}
+	.title p {
+		text-align:center;
+		line-height:110%;
+		font-family: 'PT Sans';
+		text-shadow:2px 2px 2px #111;
+		letter-spacing:-1px;
+		font-size: 52px;
+		color:#FFF;
+		margin:0;		
+	}
+	.brillo {
+		-webkit-animation: shadow 10s infinite linear;
+		-moz-animation: shadow 10s infinite linear;	
+		-ms-animation: shadow 10s infinite linear;
+		animation: shadow 10s infinite linear;
+		position:absolute;
+		width:386px;
+		height:386px;
+		background: url("brillo.png") no-repeat;
+		z-index:2;
+	}
+
+	.image {
+		width:850px;
+		margin:auto;
+		padding:3em;
+	}
+	.image img {
+		background:#111;
+	}
+	.round {
+		border-radius:25px;
+	}
+
+	#buttons {
+		padding-top:3em;
+		width:380px;
+		margin:auto;
+	}
+	.btn {
+		border-radius:25px;
+		padding:10px 20px 10px 20px;
+		color:#FFF;
+		font-family:'Raleway';
+		text-decoration:none;
+		font-size:18px;
+		background-color:#2222DD;
+		background: linear-gradient(to bottom, #2222DD, #4444EE);
+		border:2px solid #5555EE;
+		border-bottom:2px solid #2222CC!important;
+		border-right:2px solid #2222CC!important;
+		margin-right:0.2em;
+		position:relative;
+		top:0;
+		background-position:0 0;
+		box-shadow:2px 2px 5px #111;
+	}
+	.btn-green { 
+		background: linear-gradient(to bottom, #188a10, #0d6a05);
+		border:2px solid #29a021;
+		border-bottom:2px solid #0f7908!important;
+		border-right:2px solid #0f7908!important;
+	}
+	.btn:hover {
+		background-position:41px 41px;
+		transition:all 1.2s ease;
+		box-shadow:2px 2px 25px #000;
+	}
+
+	#foot {
+		background:#000;
+		height:200px;
+		padding-top:2em;
+	}
+
+	#foot div {
+		width:550px;
+		margin:auto;
+	}
+
+	#foot div a img {
+		opacity:0.15;
+	}
+
+	#foot div a img:hover {
+		opacity:1;
+		transition:all 2s;
+	}
