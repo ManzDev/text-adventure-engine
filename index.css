@@ -156,6 +156,7 @@
 
 	#foot div a img {
 		opacity:0.15;
+		transition:all 1s;
 	}
 
 	#foot div a img:hover {
