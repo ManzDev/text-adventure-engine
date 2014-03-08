@@ -11,6 +11,11 @@
 		// Muestra TODAS las salidas existentes en la habitación 
 		// actual (aunque no se cumplan los requisitos)
 		function show() {
+			$exits = $this->exits;
+			foreach ($exits as $exit => $o) {
+				if ((is_object($o)) && (property_exists($o, 'hidden')) && ($o->hidden == true))
+					unset($exits->$exit);
+			}
 			$exits = array_keys((array)$this->exits);
 			$num = count($exits);
 			return array("salidas", ($num == 1 ? __('EXIT_ONLY_ONE') : __('EXIT_AVAILABLE')) . enumerate($exits) . '.');
