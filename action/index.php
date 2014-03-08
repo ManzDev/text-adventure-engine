@@ -1,7 +1,7 @@
 <?php
 	
 	$time = microtime(1);
-	ini_set('date.timezone', 'Europe/London');
+	include($_SERVER['DOCUMENT_ROOT'] . '/config.php');			// Innocent Hill Engine Config
 	include($_SERVER['DOCUMENT_ROOT'] . '/autoload.php');		// Autoload classes
 	include($_SERVER['DOCUMENT_ROOT'] . '/Localize.php'); 		// Localization translation
 	include($_SERVER['DOCUMENT_ROOT'] . '/FileDriver.php');		// File-Flat Driver

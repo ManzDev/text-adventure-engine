@@ -2,12 +2,7 @@
 
 	// REQUIRE: load/save (from *Driver)
 
-	// CONSTANTS
-	define('SECURE_JSON', 1);				// Strip tags from JSON content
-	define('CURRENT_GAME', 'default');		// Change dir for play other game
-
 	// PATHS DIR & FILES
-	define('APPDIR',  $_SERVER['DOCUMENT_ROOT'] . '/');
 	define('GAMEDIR', APPDIR . 'games/' . CURRENT_GAME);	
 	define('USERDIR', GAMEDIR . '/users/');
 	define('ROOMDIR', GAMEDIR . '/data/');
