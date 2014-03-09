@@ -15,9 +15,6 @@
 	define('SECURE_JSON', 1);
 
 	// Current game folder. By default, 'default' folder. Change for play other game
-	define('CURRENT_GAME', 'default');
-
-	// Folder of game. Change if you install game on specific path.
-	define('APPDIR',  $_SERVER['DOCUMENT_ROOT'] . '/');
+	define('CURRENT_GAME', 'default');	
 
 ?>

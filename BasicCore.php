@@ -3,13 +3,13 @@
 	// REQUIRE: load/save (from *Driver)
 
 	// PATHS DIR & FILES
-	define('GAMEDIR', APPDIR . 'games/' . CURRENT_GAME);	
-	define('USERDIR', GAMEDIR . '/users/');
-	define('ROOMDIR', GAMEDIR . '/data/');
-	define('CHATDIR', GAMEDIR . '/chats/');
+	define('GAMEDIR', APPDIR . 'games' . DIRECTORY_SEPARATOR . CURRENT_GAME . DIRECTORY_SEPARATOR);	
+	define('USERDIR', GAMEDIR . 'users' . DIRECTORY_SEPARATOR);
+	define('ROOMDIR', GAMEDIR . 'data' . DIRECTORY_SEPARATOR);
+	define('CHATDIR', GAMEDIR . 'chats' . DIRECTORY_SEPARATOR);
 
 	// Public dir
-	define('RAWDIR', str_replace(APPDIR, '', GAMEDIR) . '/assets/');
+	define('RAWDIR', str_replace(APPDIR, '', GAMEDIR) . 'assets' . DIRECTORY_SEPARATOR);
 
 	define('USERID', md5($_SERVER['REMOTE_ADDR']));
 	define('USERFILE', USERDIR . USERID .'.json');
@@ -18,7 +18,7 @@
 	// FIRST TIME (NEW USER)
 	// Crea un nuevo fichero de datos de usuario de un molde de base
 	if (!file_exists(USERFILE)) {
-		$base = json_decode(file_get_contents(USERDIR . '/base.json'));
+		$base = json_decode(file_get_contents(USERDIR . 'base.json'));
 		file_put_contents(USERFILE, json_encode($base, JSON_PRETTY_PRINT));
 	}
 

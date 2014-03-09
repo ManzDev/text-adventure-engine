@@ -1,15 +1,17 @@
-/**
- ** IHEngine (Innocent Hill Engine)
- ** ===============================
- ** Conversational adventure engine with multiplayer chat-logging system.
+/** Innocent Hill Engine
+ ** ====================
+ ** Conversational text adventure engine with multiplayer chat-logging system.
  **
- ** Twitter: (@Manz)
+ ** GitHub: https://github.com/ManzDev/text-adventure-engine
+ ** Twitter: http://twitter.com/Manz
+ ** Blog: http://www.emezeta.com/
+ **
  **/
 
 $( document ).ready(function() {
 
 	doInfo();
-	$('#chat').load('/action/?chat=1');
+	$('#chat').load(window.location.pathname+'action/?chat=1');
 	$('#input').focus();
 
 	lang = (function() {
@@ -58,7 +60,7 @@ function doInfo() {
 	$('#text').text(obj.data.description);
 	if (obj.data.image != undefined)
 		$('#img img').attr('src', obj.data.image);
-	$('#chat').load('/action/?chat=1');
+	$('#chat').load(window.location.pathname+'action/?chat=1');
 	if (obj.data.music != undefined)
 		music = new Audio(obj.data.music).play();
 
@@ -83,7 +85,7 @@ function doIt(data) {
 	var result = '';
 	request = $.ajax({
 		type : "GET",
-		url : '/action/',		
+		url : window.location.pathname + 'action/',		
 		data : data,
 		datatype : "json",
 		async : false
@@ -132,7 +134,7 @@ function doAction(s) {
 
 	request = $.ajax({
 		type: 'POST',
-		url : '/action/',
+		url : window.location.pathname + 'action/',
 		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
 		data : {data: s},
 		datatype: "html",

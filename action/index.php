@@ -1,11 +1,15 @@
 <?php
-	
+
 	$time = microtime(1);
-	include($_SERVER['DOCUMENT_ROOT'] . '/config.php');			// Innocent Hill Engine Config
-	include($_SERVER['DOCUMENT_ROOT'] . '/autoload.php');		// Autoload classes
-	include($_SERVER['DOCUMENT_ROOT'] . '/Localize.php'); 		// Localization translation
-	include($_SERVER['DOCUMENT_ROOT'] . '/FileDriver.php');		// File-Flat Driver
-	include($_SERVER['DOCUMENT_ROOT'] . '/BasicCore.php');		// Constants & Functions
+	
+	// Autodiscover folder path game. Use current URL without 'action' (-6)
+	define('APPDIR', substr(dirname(__FILE__), 0, -6));
+
+	include(APPDIR . 'config.php');			// Innocent Hill Engine Config
+	include(APPDIR . 'autoload.php');		// Autoload classes
+	include(APPDIR . 'Localize.php'); 		// Localization translation
+	include(APPDIR . 'FileDriver.php');		// File-Flat Driver
+	include(APPDIR . 'BasicCore.php');		// Constants & Functions
 
  	$response = new StdClass();
 
@@ -46,7 +50,7 @@
 	if (!$data)
 		return;
 		
-	include($_SERVER['DOCUMENT_ROOT'] . '/Parser.php');
+	include(APPDIR . 'Parser.php');
 	$data = parser(sanitize($data));
 	
 	if (strpos($data, " ") !== FALSE)
