@@ -2,18 +2,8 @@
 
 	// REQUIRE: load/save (from *Driver)
 
-	// PATHS DIR & FILES
-	define('GAMEDIR', APPDIR . 'games' . DIRECTORY_SEPARATOR . CURRENT_GAME . DIRECTORY_SEPARATOR);	
-	define('USERDIR', GAMEDIR . 'users' . DIRECTORY_SEPARATOR);
-	define('ROOMDIR', GAMEDIR . 'data' . DIRECTORY_SEPARATOR);
-	define('CHATDIR', GAMEDIR . 'chats' . DIRECTORY_SEPARATOR);
-
-	// Public dir
-	define('RAWDIR', str_replace(APPDIR, '', GAMEDIR) . 'assets' . DIRECTORY_SEPARATOR);
-
 	define('USERID', md5($_SERVER['REMOTE_ADDR']));
 	define('USERFILE', USERDIR . USERID .'.json');
-	define('ITEMFILE', ROOMDIR . 'items.json');
 
 	// FIRST TIME (NEW USER)
 	// Crea un nuevo fichero de datos de usuario de un molde de base
