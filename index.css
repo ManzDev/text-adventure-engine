@@ -17,8 +17,9 @@
 		background-image: url(enter.png), linear-gradient(75deg, #266cad, #004B9E);
 		background-repeat: no-repeat, repeat;
 		background-position: top center, 0 0;
-		height:525px;
+		height:485px;
 		padding:3em;
+		padding-bottom:0;
 	}
 	#page2 {
 		background:linear-gradient(75deg, #111, #333);
@@ -26,9 +27,20 @@
 		padding:3em;
 	}
 
-	#page1 #logo {
-		width:400px;
+	#logo {
+		width:260px;
 		margin:auto;
+		margin-bottom:1em		
+	}
+
+	#compatibility {
+		width:560px;
+		margin:auto;
+		margin-top:1em;
+		margin-bottom:3em
+	}
+	#compatibility img {
+		margin-right:0.3em;
 	}
 
 	@-webkit-keyframes shadow {
@@ -56,8 +68,8 @@
 	}
 
 	#logo img {
-		width:386px;
-		height:386px;
+		width:286px;
+		height:286px;
 		box-shadow:2px 2px 25px #000;
 		border:3px solid #000;
 		position:relative;
@@ -89,8 +101,8 @@
 		-ms-animation: shadow 10s infinite linear;
 		animation: shadow 10s infinite linear;
 		position:absolute;
-		width:386px;
-		height:386px;
+		width:286px;
+		height:286px;
 		background: url("brillo.png") no-repeat;
 		z-index:2;
 	}
@@ -109,7 +121,7 @@
 
 	#buttons {
 		padding-top:3em;
-		width:400px;
+		width:405px;
 		margin:auto;
 	}
 	.btn {
@@ -117,6 +129,7 @@
 		padding:10px 20px 10px 20px;
 		color:#FFF;
 		font-family:'Raleway';
+		font-weight:200;
 		text-decoration:none;
 		font-size:18px;
 		background-color:#2222DD;
