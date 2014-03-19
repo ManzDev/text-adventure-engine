@@ -29,6 +29,6 @@
 	define('ITEMFILE', ROOMDIR . 'items.json');
 	
 	// Public dir
-	define('RAWDIR', str_replace(APPDIR, '', GAMEDIR) . 'assets' . DIRECTORY_SEPARATOR);	
+	define('RAWDIR', str_replace('\\', '/', str_replace(APPDIR, '', GAMEDIR) . 'assets' . DIRECTORY_SEPARATOR));	
 
 ?>
